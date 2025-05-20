@@ -1,92 +1,45 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const track = document.getElementById('carousel-track');
-  const slides = document.querySelectorAll('.carousel-slide');
-  const prevBtn = document.querySelector('.carousel-prev');
-  const nextBtn = document.querySelector('.carousel-next');
+const track = document.getElementById("carouselTrack");
+const slides = document.querySelectorAll("#carouselTrack > div");
+const totalSlides = slides.length;
+const slideWidth = slides[0].offsetWidth;
+let index = 1; // because we start from 1 (real first slide)
+let transitioning = false;
 
-  const slideCount = slides.length / 2; // Since we cloned them
-  let currentIndex = 0;
-  let isTransitioning = false;
-  let autoScrollInterval;
+// Start at real slide 1
+track.style.transform = `translateX(-${slideWidth * index}px)`;
 
-  // Set initial position
-  track.style.transform = 'translateX(0)';
+function moveToIndex(newIndex) {
+  if (transitioning) return;
+  transitioning = true;
+  index = newIndex;
+  track.style.transition = "transform 0.7s ease-in-out";
+  track.style.transform = `translateX(-${slideWidth * index}px)`;
+}
 
-  // Next slide
-  function nextSlide() {
-    if (isTransitioning) return;
-    isTransitioning = true;
+document.getElementById("nextBtn").addEventListener("click", () => {
+  if (index >= totalSlides - 1) return;
+  moveToIndex(index + 1);
+});
 
-    currentIndex++;
-    track.style.transition = 'transform 0.5s ease';
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if (index <= 0) return;
+  moveToIndex(index - 1);
+});
 
-    if (currentIndex >= slideCount) {
-      setTimeout(() => {
-        track.style.transition = 'none';
-        currentIndex = 0;
-        track.style.transform = 'translateX(0)';
-        setTimeout(() => {
-          track.style.transition = 'transform 0.5s ease';
-        }, 20);
-      }, 1000);
-    }
+track.addEventListener("transitionend", () => {
+  transitioning = false;
 
-    setTimeout(() => {
-      isTransitioning = false;
-    }, 1000);
+  if (index === totalSlides - 1) {
+    // Jump to real first slide
+    track.style.transition = "none";
+    index = 1;
+    track.style.transform = `translateX(-${slideWidth * index}px)`;
+  } else if (index === 0) {
+    // Jump to real last slide
+    track.style.transition = "none";
+    index = totalSlides - 2;
+    track.style.transform = `translateX(-${slideWidth * index}px)`;
   }
-
-  function prevSlide() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-
-    if (currentIndex <= 0) {
-      track.style.transition = 'none';
-      currentIndex = slideCount;
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-      setTimeout(() => {
-        track.style.transition = 'transform 0.5s ease';
-        currentIndex--;
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }, 20);
-    } else {
-      currentIndex--;
-      track.style.transition = 'transform 0.5s ease';
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    setTimeout(() => {
-      isTransitioning = false;
-    }, 1000);
-  }
-
-  function startAutoScroll() {
-    autoScrollInterval = setInterval(nextSlide, 3000);
-  }
-
-  function stopAutoScroll() {
-    clearInterval(autoScrollInterval);
-  }
-
-  nextBtn.addEventListener('click', () => {
-    stopAutoScroll();
-    nextSlide();
-    startAutoScroll();
-  });
-
-  prevBtn.addEventListener('click', () => {
-    stopAutoScroll();
-    prevSlide();
-    startAutoScroll();
-  });
-  const carousel = document.querySelector('.carousel');
-  carousel.addEventListener('mouseenter', stopAutoScroll);
-  carousel.addEventListener('mouseleave', startAutoScroll);
-
-  // Initialize
-  startAutoScroll();
 });
 
 const container = document.getElementById('reviewsContainer');
@@ -109,32 +62,20 @@ function submitForm(event) {
   document.getElementById('contactForm').reset();
 }
 
-function toggleFAQ(button) {
-  const expanded = button.getAttribute('aria-expanded') === 'true';
-
-  document.querySelectorAll('section div[aria-expanded="true"]').forEach(btn => {
-    if (btn !== button) {
-      btn.setAttribute('aria-expanded', 'false');
-      btn.nextElementSibling.style.maxHeight = null;
-      btn.querySelector('svg').style.transform = '';
-    }
-  });
-
-  // Toggle current
-  button.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  const content = button.nextElementSibling;
-  if (!expanded) {
-    content.style.maxHeight = content.scrollHeight + 'px';
-    button.querySelector('svg').style.transform = 'rotate(180deg)';
-  } else {
-    content.style.maxHeight = null;
-    button.querySelector('svg').style.transform = '';
-  }
-}
-
 function toggleSidebar() {
   const sidebar = document.getElementById('mobileSidebar');
   const overlay = document.getElementById('sidebarOverlay');
-  sidebar.classList.toggle('-translate-x-full');
-  overlay.classList.toggle('hidden');
+  const isOpen = sidebar.classList.contains('translate-x-0');
+
+  if (!isOpen) {
+    sidebar.classList.remove('-translate-x-full');
+    sidebar.classList.add('translate-x-0');
+    overlay.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden'); // Prevent scroll
+  } else {
+    sidebar.classList.remove('translate-x-0');
+    sidebar.classList.add('-translate-x-full');
+    overlay.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  }
 }
