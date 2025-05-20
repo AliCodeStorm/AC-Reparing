@@ -45,12 +45,56 @@ window.addEventListener('DOMContentLoaded', () => {
         ease: "power3.out"
     });
 
-      gsap.to("#logo-img", {
-    rotate: 360,
-    duration: 1,
-    repeat: -1,
-    ease: "power1.inOut",
-    repeatDelay: 4 // 1s animation + 4s delay = every 5s
-  });
+    gsap.to("#logo-img", {
+        rotate: 360,
+        duration: 1,
+        repeat: -1,
+        ease: "power1.inOut",
+        repeatDelay: 4 // 1s animation + 4s delay = every 5s
+    });
 
 });
+
+const sidebar = document.getElementById('mobileSidebar');
+const links = document.querySelectorAll('.sidebar-link');
+let isSidebarOpen = false;
+
+function toggleSidebar() {
+    if (isSidebarOpen) {
+        // Animate links out
+        gsap.to(links, {
+            x: -20,
+            opacity: 0,
+            stagger: 0.05,
+            duration: 0.2,
+            onComplete: () => {
+                // Hide sidebar
+                gsap.to(sidebar, {
+                    x: '-100%',
+                    duration: 0.3,
+                    ease: 'power2.inOut',
+                });
+            }
+        });
+    } else {
+        // Show sidebar
+        gsap.to(sidebar, {
+            x: '0%',
+            duration: 0.3,
+            ease: 'power2.out',
+            onComplete: () => {
+                // Animate links in
+                gsap.fromTo(links,
+                    { x: -20, opacity: 0 },
+                    {
+                        x: 0,
+                        opacity: 1,
+                        stagger: 0.1,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+            }
+        });
+    }
+    isSidebarOpen = !isSidebarOpen;
+}
