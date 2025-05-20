@@ -15,9 +15,10 @@
 <body>
 
     <!-- contactBar  -->
-    <section id="contact-bar" class="hidden md:flex bg-blue-900 text-white py-3 px-4 fixed top-0 left-0 w-full z-50">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-            <ul class="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 items-center text-center sm:text-left">
+    <section id="contact-bar" class="bg-blue-900 text-white py-3 px-4 fixed top-0 left-0 w-full z-50 overflow-x-auto">
+        <div
+            class="max-w-none min-w-[768px] md:max-w-7xl mx-auto flex flex-row justify-between items-center gap-4 text-sm">
+            <ul class="flex flex-row flex-nowrap gap-4 items-center text-center whitespace-nowrap">
                 <li class="flex items-center gap-2">
                     <i class="fa-solid fa-phone text-white text-sm"></i>
                     <a href="tel:+966540787607" class="hover:underline">+966 540 787 607</a>
@@ -31,12 +32,13 @@
                     <span>Mon - Sun 08:00 AM - 12:00 PM</span>
                 </li>
             </ul>
-            <a href="tel:+966540787607"
-                class="bg-white text-gray-900 px-4 py-1.5 rounded-full font-semibold hover:bg-gray-200 transition">
+            <a id="contact-call-btn" href="tel:+966540787607"
+                class="bg-white text-gray-900 px-4 py-1.5 rounded-full font-semibold hover:bg-gray-200 transition whitespace-nowrap">
                 📞 Call Now
             </a>
         </div>
     </section>
+
 
     <!-- header  -->
     <nav aria-label="Global" class="bg-white shadow fixed left-0 w-full z-40" id="mainNavbar">
