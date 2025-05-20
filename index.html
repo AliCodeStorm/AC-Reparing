@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="./javascript/animation.js"></script>
     <link rel="stylesheet" href="./style/global.css">
     <title>حلول كاملة لصيانة وتصليح التكييف</title>
@@ -54,13 +55,13 @@
             <!-- Desktop Links -->
             <div class="hidden lg:flex space-x-8">
                 <a href="./index.html" class="text-gray-700 hover:text-indigo-600 font-medium">
-                    <i class="fas fa-home mr-1"></i>بيت</a>
+                    <i id="spinIcon" class="fas fa-home mr-1"></i>بيت</a>
                 <a href="./pages/about.html" class="text-gray-700 hover:text-indigo-600 font-medium">
-                     <i class="fas fa-info-circle mr-1"></i>معلومات عنا</a>
+                    <i id="spinIcon" class="fas fa-info-circle mr-1"></i>معلومات عنا</a>
                 <a href="./pages/contact.html" class="text-gray-700 hover:text-indigo-600 font-medium">
-                    <i class="fas fa-phone-alt mr-1"></i>اتصال</a>
+                    <i id="spinIcon" class="fas fa-phone-alt mr-1"></i>اتصال</a>
                 <a href="./pages/services.html" class="text-gray-700 hover:text-indigo-600 font-medium">
-                    <i class="fas fa-tools mr-1"></i>خدمات</a>
+                    <i id="spinIcon" class="fas fa-tools mr-1"></i>خدمات</a>
             </div>
 
             <!-- Desktop Call Button -->
@@ -95,23 +96,23 @@
         </div>
         <nav class="p-4 space-y-4">
             <a href="./index.html" onclick="toggleSidebar()"
-                class="sidebar-link block text-gray-700 hover:text-indigo-600 font-medium">
+                class="block text-gray-700 hover:text-indigo-600 font-medium">
                 <i class="fas fa-home mr-2"></i> بيت
             </a>
             <a href="./pages/about.html" onclick="toggleSidebar()"
-                class="sidebar-link block text-gray-700 hover:text-indigo-600 font-medium">
+                class="block text-gray-700 hover:text-indigo-600 font-medium">
                 <i class="fas fa-info-circle mr-2"></i> معلومات عنا
             </a>
             <a href="./pages/contact.html" onclick="toggleSidebar()"
-                class="sidebar-link block text-gray-700 hover:text-indigo-600 font-medium">
+                class="block text-gray-700 hover:text-indigo-600 font-medium">
                 <i class="fas fa-phone-alt mr-2"></i> اتصال
             </a>
             <a href="./pages/services.html" onclick="toggleSidebar()"
-                class="sidebar-link block text-gray-700 hover:text-indigo-600 font-medium">
+                class="block text-gray-700 hover:text-indigo-600 font-medium">
                 <i class="fas fa-tools mr-2"></i> خدمات
             </a>
             <a href="./pages/services.html" onclick="toggleSidebar()"
-                class="sidebar-link block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-semibold mt-4">
+                class="block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-semibold mt-4">
                 <i class="fas fa-phone-alt mr-2"></i> اتصل الآن
             </a>
         </nav>
@@ -197,7 +198,7 @@
             <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
 
                 <!-- Fast Service -->
-                <div class="relative lg:row-span-2">
+                <div class="service-card relative lg:row-span-2">
                     <div class="absolute inset-px rounded-lg bg-white lg:rounded-l-4xl"></div>
                     <div
                         class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
@@ -220,7 +221,7 @@
                 </div>
 
                 <!-- Certified Technicians -->
-                <div class="relative max-lg:row-start-1">
+                <div class="service-card relative max-lg:row-start-1">
                     <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-4xl"></div>
                     <div
                         class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
@@ -245,7 +246,7 @@
                 </div>
 
                 <!-- Affordable Pricing -->
-                <div class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
+                <div class="service-card relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
                     <div class="absolute inset-px rounded-lg bg-white"></div>
                     <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
                         <div class="px-8 pt-8 sm:px-10 sm:pt-10">
@@ -268,7 +269,7 @@
                 </div>
 
                 <!-- Emergency Support -->
-                <div class="relative lg:row-span-2">
+                <div class="service-card relative lg:row-span-2">
                     <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-4xl lg:rounded-r-4xl"></div>
                     <div
                         class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
@@ -299,38 +300,38 @@
     <div class="relative overflow-hidden w-full max-w-7xl py-6 mx-auto">
         <div class="flex flex-wrap justify-center gap-12 items-center">
             <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp" alt="React"
-                class="transition-transform duration-300 hover:scale-125
+                class="logo transition-transform duration-300 hover:scale-125
  h-16 w-auto" />
             <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
-                alt="Node.js" class="transition-transform duration-300 hover:scale-125
+                alt="Node.js" class="logo transition-transform duration-300 hover:scale-125
  h-16 w-auto" />
             <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
-                alt="JavaScript" class="transition-transform duration-300 hover:scale-125
+                alt="JavaScript" class="logo transition-transform duration-300 hover:scale-125  
  h-16 w-auto" />
             <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp" alt="JS"
-                class="transition-transform duration-300 hover:scale-125
+                class="logo transition-transform duration-300 hover:scale-125
  h-16 w-auto" />
             <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
-                alt="Tailwind" class="transition-transform duration-300 hover:scale-125
+                alt="Tailwind" class="logo transition-transform duration-300 hover:scale-125
  h-16 w-auto" />
             <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
-                alt="Next.js" class="transition-transform duration-300 hover:scale-125
+                alt="Next.js" class="logo transition-transform duration-300 hover:scale-125
  h-16 w-auto" />
             <!-- Add more logos here if needed -->
         </div>
     </div>
 
     <!-- big card  -->
-    <section class="w-full bg-gray-50 py-16 px-6 md:px-12 lg:px-24">
+    <section id="servicesSection" class="w-full bg-gray-50 py-16 px-6 md:px-12 lg:px-24">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
             <!-- Left side: Image -->
             <div class="md:w-1/2">
-                <img src="https://acrepair.shop/wp-content/uploads/2025/05/images-22.jpeg"
+                <img id="servicesImage" src="https://acrepair.shop/wp-content/uploads/2025/05/images-22.jpeg"
                     alt="Air Conditioner Maintenance" class="w-full rounded-lg shadow-lg object-cover" />
             </div>
 
             <!-- Right side: Text Content -->
-            <div class="md:w-1/2 text-right space-y-6">
+            <div id="servicesText" class="md:w-1/2 text-right space-y-6">
                 <h2 class="text-4xl font-bold text-gray-900">خدماتنا</h2>
                 <p class="text-lg text-gray-700 leading-relaxed">
                     صيانة المكيفات الفعالة تتضمن إصلاح الأعطال بسرعة ودقة، مع ضمان استعادة أداء المكيف بشكل كامل.
@@ -353,27 +354,110 @@
         </div>
     </section>
 
+    <div id="aboutSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12" dir="rtl">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Left image with overlay & quote -->
+            <div class="relative rounded-lg overflow-hidden shadow-lg about-image">
+                <img src="https://images.unsplash.com/photo-1630569267625-157f8f9d1a7e?auto=format&fit=crop&w=1200&q=80"
+                    alt="فني يقوم بإصلاح المكيف" class="w-full h-auto object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <blockquote
+                    class="absolute bottom-6 right-6 left-6 text-white italic text-lg sm:text-xl font-light drop-shadow-lg text-right">
+                    <p>
+                        <i class="fas fa-quote-right ml-2"></i>
+                        "يضمن فنيونا الخبراء أن يظل منزلك بارداً ومريحاً طوال العام من خلال خدمة سريعة وموثوقة."
+                        <i class="fas fa-quote-left mr-2"></i>
+                    </p>
+                    <figcaption class="mt-3 font-semibold">
+                        — <span class="text-yellow-400">جيسيكا باركر</span>، المدير التنفيذي في حلول كول إير
+                    </figcaption>
+                </blockquote>
+            </div>
+
+            <!-- Right content area -->
+            <div class="about-content">
+                <p class="text-sm text-yellow-600 font-semibold uppercase mb-2">قيمنا</p>
+                <h1 class="text-4xl font-extrabold text-gray-900 mb-6">
+                    ملتزمون براحتكم وجودة الهواء
+                </h1>
+                <div class="space-y-4 text-gray-700 text-right">
+                    <p>
+                        نحن في حلول كول إير متخصصون في تقديم خدمات تركيب وصيانة وإصلاح مكيفات الهواء للمنازل والشركات.
+                        مهمتنا هي
+                        الحفاظ على راحتك وتحسين كفاءة الطاقة وجودة الهواء الداخلي.
+                    </p>
+                    <p>
+                        يتمتع فنيونا المعتمدون بخبرة طويلة ويستخدمون أحدث التقنيات لضمان إنجاز العمل بالشكل الصحيح من
+                        أول مرة.
+                    </p>
+                    <p>
+                        رضا العملاء، والشفافية، والخدمة في الوقت المناسب هي ركائز شركتنا. نحن هنا لحل مشاكلك المتعلقة
+                        بالتبريد بسرعة
+                        وكفاءة.
+                    </p>
+                </div>
+
+                <!-- Company stats -->
+                <dl class="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4 text-center about-stats">
+                    <div class="stat-item">
+                        <dt class="text-2xl font-extrabold text-yellow-600">
+                            <i class="fas fa-tools"></i> 5000+
+                        </dt>
+                        <dd class="mt-1 text-gray-600">تركيبات</dd>
+                    </div>
+                    <div class="stat-item">
+                        <dt class="text-2xl font-extrabold text-yellow-600">
+                            <i class="fas fa-user-friends"></i> 1500+
+                        </dt>
+                        <dd class="mt-1 text-gray-600">عملاء سعداء</dd>
+                    </div>
+                    <div class="stat-item">
+                        <dt class="text-2xl font-extrabold text-yellow-600">
+                            <i class="fas fa-award"></i> 12
+                        </dt>
+                        <dd class="mt-1 text-gray-600">سنة خبرة</dd>
+                    </div>
+                    <div class="stat-item">
+                        <dt class="text-2xl font-extrabold text-yellow-600">
+                            <i class="fas fa-headset"></i> 24/7
+                        </dt>
+                        <dd class="mt-1 text-gray-600">دعم فني دائم</dd>
+                    </div>
+                </dl>
+
+                <div class="mt-8 text-right">
+                    <a href="#services"
+                        class="inline-flex items-center px-6 py-3 bg-yellow-600 text-white font-semibold rounded-md hover:bg-yellow-700 transition">
+                        تعرف على خدماتنا
+                        <i class="fas fa-arrow-left mr-3"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- cards reviews -->
-    <section class="max-w-7xl mx-auto px-6 py-12 relative">
+    <section id="happyClients" class="max-w-7xl mx-auto px-6 py-12 relative">
         <h2 class="text-3xl font-bold mb-8 text-center">عملائنا السعداء</h2>
 
         <!-- Left arrow -->
         <button id="scrollLeft"
-            class="absolute top-1/2 left-2 -translate-y-1/2 bg-white text-gray-700 rounded-full p-3 shadow hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+            class="absolute top-1/2 left-2 -translate-y-1/2 bg-white text-gray-700 rounded-full p-3 shadow hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed z-10"
             aria-label="Scroll Left">
             <i class="fas fa-chevron-left"></i>
         </button>
 
         <!-- Right arrow -->
         <button id="scrollRight"
-            class="absolute top-1/2 right-2 -translate-y-1/2 bg-white text-gray-700 rounded-full p-3 shadow hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+            class="absolute top-1/2 right-2 -translate-y-1/2 bg-white text-gray-700 rounded-full p-3 shadow hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed z-10"
             aria-label="Scroll Right">
             <i class="fas fa-chevron-right"></i>
         </button>
 
         <div id="reviewsContainer" class="flex space-x-6 overflow-x-auto scrollbar-none scroll-smooth"
             style="scrollbar-width: none; -ms-overflow-style: none;">
-            <div class="min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
+
+            <div class="review-card min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
                 <div class="flex items-center mb-4">
                     <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 1"
                         class="w-12 h-12 rounded-full mr-3" />
@@ -387,7 +471,7 @@
                 </p>
             </div>
 
-            <div class="min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
+            <div class="review-card min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
                 <div class="flex items-center mb-4">
                     <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="User 2"
                         class="w-12 h-12 rounded-full mr-3" />
@@ -401,7 +485,7 @@
                 </p>
             </div>
 
-            <div class="min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
+            <div class="review-card min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
                 <div class="flex items-center mb-4">
                     <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User 3"
                         class="w-12 h-12 rounded-full mr-3" />
@@ -414,8 +498,33 @@
                     فريق محترف وخدمة سريعة. أشكرهم على صيانة مكيفي بكفاءة.
                 </p>
             </div>
-
-            <div class="min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
+            <div class="review-card min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
+                <div class="flex items-center mb-4">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User 3"
+                        class="w-12 h-12 rounded-full mr-3" />
+                    <div>
+                        <h3 class="font-semibold text-lg">ليلى حسن</h3>
+                        <p class="text-sm text-gray-500">زبونة</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 leading-relaxed">
+                    فريق محترف وخدمة سريعة. أشكرهم على صيانة مكيفي بكفاءة.
+                </p>
+            </div>
+            <div class="review-card min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
+                <div class="flex items-center mb-4">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User 3"
+                        class="w-12 h-12 rounded-full mr-3" />
+                    <div>
+                        <h3 class="font-semibold text-lg">ليلى حسن</h3>
+                        <p class="text-sm text-gray-500">زبونة</p>
+                    </div>
+                </div>
+                <p class="text-gray-700 leading-relaxed">
+                    فريق محترف وخدمة سريعة. أشكرهم على صيانة مكيفي بكفاءة.
+                </p>
+            </div>
+            <div class="review-card min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
                 <div class="flex items-center mb-4">
                     <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User 3"
                         class="w-12 h-12 rounded-full mr-3" />
@@ -433,81 +542,6 @@
         </div>
     </section>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <!-- Left image with overlay & quote -->
-            <div class="relative rounded-lg overflow-hidden shadow-lg">
-                <img src="https://images.unsplash.com/photo-1630569267625-157f8f9d1a7e?auto=format&fit=crop&w=1200&q=80"
-                    alt="Technician fixing AC" class="w-full h-auto object-cover" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <blockquote
-                    class="absolute bottom-6 left-6 right-6 text-white italic text-lg sm:text-xl font-light drop-shadow-lg">
-                    <p>
-                        <i class="fas fa-quote-left mr-2"></i>
-                        “Our expert technicians ensure your home stays cool and comfortable all year round with fast
-                        and reliable AC service.”
-                        <i class="fas fa-quote-right ml-2"></i>
-                    </p>
-                    <figcaption class="mt-3 font-semibold">
-                        — <span class="text-yellow-400">Jessica Parker</span>, CEO at CoolAir Solutions
-                    </figcaption>
-                </blockquote>
-            </div>
-
-            <!-- Right content area -->
-            <div>
-                <p class="text-sm text-yellow-600 font-semibold uppercase mb-2">Our Values</p>
-                <h1 class="text-4xl font-extrabold text-gray-900 mb-6">
-                    Dedicated to Your Comfort & Air Quality
-                </h1>
-                <div class="space-y-4 text-gray-700">
-                    <p>
-                        At CoolAir Solutions, we specialize in providing top-notch air conditioning installation,
-                        maintenance, and repair services for homes and businesses. Our mission is to keep you
-                        comfortable while optimizing energy efficiency and indoor air quality.
-                    </p>
-                    <p>
-                        Our certified technicians bring years of experience and use the latest technology to ensure
-                        every job is done right the first time.
-                    </p>
-                    <p>
-                        Customer satisfaction, transparency, and timely service are the cornerstones of our company.
-                        We're here to solve your cooling problems quickly and effectively.
-                    </p>
-                </div>
-
-                <!-- Company stats -->
-                <dl class="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4 text-center">
-                    <div>
-                        <dt class="text-2xl font-extrabold text-yellow-600"><i class="fas fa-tools"></i> 5000+</dt>
-                        <dd class="mt-1 text-gray-600">Installations</dd>
-                    </div>
-                    <div>
-                        <dt class="text-2xl font-extrabold text-yellow-600"><i class="fas fa-user-friends"></i>
-                            1500+</dt>
-                        <dd class="mt-1 text-gray-600">Happy Clients</dd>
-                    </div>
-                    <div>
-                        <dt class="text-2xl font-extrabold text-yellow-600"><i class="fas fa-award"></i> 12</dt>
-                        <dd class="mt-1 text-gray-600">Years Experience</dd>
-                    </div>
-                    <div>
-                        <dt class="text-2xl font-extrabold text-yellow-600"><i class="fas fa-headset"></i> 24/7</dt>
-                        <dd class="mt-1 text-gray-600">Customer Support</dd>
-                    </div>
-                </dl>
-
-                <div class="mt-8">
-                    <a href="#services"
-                        class="inline-flex items-center px-6 py-3 bg-yellow-600 text-white font-semibold rounded-md hover:bg-yellow-700 transition">
-                        Learn more about our services
-                        <i class="fas fa-arrow-right ml-3"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- companies logos  -->
     <section class="bg-gray-50 py-10">
         <div class="max-w-7xl mx-auto px-6">
@@ -516,22 +550,22 @@
             <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
                 <img src="https://acrepair.shop/wp-content/uploads/2025/04/Screenshot_2023-04-08_at_5.03.02_PM-removebg-preview.png"
                     alt="LG"
-                    class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
+                    class="logo h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
                 <img src="https://acrepair.shop/wp-content/uploads/2025/04/Screenshot_2023-04-08_at_5.03.09_PM-removebg-preview.png"
                     alt="Samsung"
-                    class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
+                    class="logo h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
                 <img src="https://acrepair.shop/wp-content/uploads/2025/04/Screenshot_2023-04-08_at_5.03.14_PM-removebg-preview.png"
                     alt="Carrier"
-                    class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
+                    class="logo h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
                 <img src="https://acrepair.shop/wp-content/uploads/2025/04/Screenshot_2023-04-08_at_5.00.19_PM-removebg-preview.png"
                     alt="Panasonic"
-                    class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
+                    class="logo h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
                 <img src="https://acrepair.shop/wp-content/uploads/2025/04/Screenshot_2023-04-08_at_5.00.30_PM-removebg-preview.png"
                     alt="Daikin"
-                    class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
+                    class="logo h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
                 <img src="https://acrepair.shop/wp-content/uploads/2025/04/Screenshot_2023-04-08_at_5.00.39_PM-removebg-preview.png"
                     alt="Daikin"
-                    class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
+                    class="logo h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
 
             </div>
         </div>
@@ -554,10 +588,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-50 text-gray-700 px-6 py-12 max-w-7xl mx-auto">
+    <footer id="siteFooter" class="bg-gray-50 text-gray-700 px-6 py-12 max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row md:justify-between space-y-10 md:space-y-0">
+
             <!-- About -->
-            <div class="max-w-sm">
+            <div class="footer-block max-w-sm">
                 <p class="mb-6">
                     نجعل العالم مكانًا أفضل من خلال بناء هياكل أنيقة.
                 </p>
@@ -581,31 +616,30 @@
             </div>
 
             <!-- Links Sections -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm font-semibold">
-                <div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm font-semibold">
+                <div class="footer-block">
                     <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Company</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-blue-600">بيت</a></li>
-                        <li><a href="#" class="hover:text-blue-600">معلومات عنا</a></li>
-                        <li><a href="#" class="hover:text-blue-600">اتصال</a></li>
-                        <li><a href="#" class="hover:text-blue-600">خدمات</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">بيت</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">معلومات عنا</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">اتصال</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">خدمات</a></li>
                     </ul>
                 </div>
-                <div>
+                <div class="footer-block">
                     <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Support</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-blue-600">اتصل بنا</a> <!-- Contact Us --></li>
-                        <li><a href="#" class="hover:text-blue-600">معلومات عنا</a> <!-- About Us --></li>
-                        <li><a href="#" class="hover:text-blue-600">الأدلة</a> <!-- Guides --></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">اتصل بنا</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">معلومات عنا</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">الأدلة</a></li>
                     </ul>
                 </div>
-                <div>
+                <div class="footer-block">
                     <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Legal</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-blue-600">شروط الخدمة</a></li>
-                        <li><a href="#" class="hover:text-blue-600">سياسة الخصوصية</a></li>
-                        <li><a href="#" class="hover:text-blue-600">الترخيص</a></li>
-
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">شروط الخدمة</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">سياسة الخصوصية</a></li>
+                        <li><a href="#" class="text-gray-700 hover:text-blue-600">الترخيص</a></li>
                     </ul>
                 </div>
             </div>
@@ -614,7 +648,6 @@
         <div class="mt-10 text-center text-xs text-gray-500">
             © 2024 شركتك، جميع الحقوق محفوظة.
         </div>
-
     </footer>
 
     <script src="./javascript/script.js"></script>
