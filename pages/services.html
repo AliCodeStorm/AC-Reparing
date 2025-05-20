@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدماتنا في تصليح وتركيب التكييف</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <nav aria-label="Global" class="bg-white shadow fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <span class="sr-only">Your Company</span>
+                <img src="https://cdn.pixabay.com/photo/2022/07/19/10/24/logo-7331699_1280.png" alt="Your Company"
+                    class="h-8 w-auto">
+                <span class="text-indigo-600 font-semibold text-lg">AC Repair</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex space-x-8">
+                <a href="../index.html" class="text-gray-700 hover:text-indigo-600 font-medium">
+                    <i class="fas fa-home mr-1"></i> بيت
+                </a>
+                <a href="./about.html" class="text-gray-700 hover:text-indigo-600 font-medium">
+                    <i class="fas fa-info-circle mr-1"></i> معلومات عنا
+                </a>
+                <a href="./contact.html" class="text-gray-700 hover:text-indigo-600 font-medium">
+                    <i class="fas fa-phone-alt mr-1"></i> اتصال
+                </a>
+                <a href="./services.html" class="text-gray-700 hover:text-indigo-600 font-medium">
+                    <i class="fas fa-tools mr-1"></i> خدمات
+                </a>
+            </div>
+
+            <!-- Desktop Call Button -->
+            <div class="hidden lg:flex space-x-4 items-center">
+                <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-semibold">
+                    <i class="fas fa-phone-alt mr-2"></i> اتصل الآن
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button onclick="toggleSidebar()" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div id="mobileSidebar"
+        class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50">
+        <div class="flex items-center justify-between px-4 h-16 border-b">
+            <span class="text-indigo-600 font-semibold text-lg">AC Repair</span>
+            <button onclick="toggleSidebar()" class="text-gray-700 hover:text-red-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <nav class="p-4 space-y-4">
+            <a href="../index.html" onclick="toggleSidebar()"
+                class="block text-gray-700 hover:text-indigo-600 font-medium">
+                <i class="fas fa-home mr-2"></i> بيت
+            </a>
+            <a href="./about.html" onclick="toggleSidebar()"
+                class="block text-gray-700 hover:text-indigo-600 font-medium">
+                <i class="fas fa-info-circle mr-2"></i> معلومات عنا
+            </a>
+            <a href="./contact.html" onclick="toggleSidebar()"
+                class="block text-gray-700 hover:text-indigo-600 font-medium">
+                <i class="fas fa-phone-alt mr-2"></i> اتصال
+            </a>
+            <a href="./services.html" onclick="toggleSidebar()"
+                class="block text-gray-700 hover:text-indigo-600 font-medium">
+                <i class="fas fa-tools mr-2"></i> خدمات
+            </a>
+            <a href="#" onclick="toggleSidebar()"
+                class="block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-semibold mt-4">
+                <i class="fas fa-phone-alt mr-2"></i> اتصل الآن
+            </a>
+        </nav>
+    </div>
+
+    <!-- Services Page for AC and Electronics Shop -->
+    <section class="bg-white py-16 px-6 md:px-12 lg:px-24">
+        <div class="max-w-7xl mx-auto">
+            <!-- Hero Section -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">حلول كاملة للأجهزة المنزلية</h1>
+                <p class="text-gray-600 text-lg">نقوم بإصلاح وصيانة وتركيب مجموعة واسعة من الأجهزة الإلكترونية لمنزلك.
+                </p>
+                <a href="#contact"
+                    class="mt-6 inline-block px-6 py-3 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition">احصل
+                    على تقدير مجاني</a>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- AC Services -->
+                <div class="p-6 border rounded-lg shadow-sm">
+                    <div class="text-indigo-600 text-3xl mb-4">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">خدمات تكييف الهواء</h3>
+                    <p class="text-gray-600">التركيب، تعبئة الغاز، الإصلاح، التنظيف والصيانة السنوية.</p>
+                </div>
+
+                <!-- Refrigerator Services -->
+                <div class="p-6 border rounded-lg shadow-sm">
+                    <div class="text-indigo-600 text-3xl mb-4">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">خدمات الثلاجة</h3>
+                    <p class="text-gray-600">مشاكل التبريد، تسرب الغاز، استبدال الضاغط والمزيد.</p>
+                </div>
+
+                <!-- Washing Machine Services -->
+                <div class="p-6 border rounded-lg shadow-sm">
+                    <div class="text-indigo-600 text-3xl mb-4">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">خدمات غسالات الملابس</h3>
+                    <p class="text-gray-600">مشاكل الأسطوانة، إصلاح المحرك، استبدال الأنابيب لجميع الموديلات.</p>
+                </div>
+
+                <!-- Iron Repair -->
+                <div class="p-6 border rounded-lg shadow-sm">
+                    <div class="text-indigo-600 text-3xl mb-4">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">إصلاح المكواة والضغط</h3>
+                    <p class="text-gray-600">مشاكل منظم الحرارة، استبدال الملف، وفحوصات السلامة.</p>
+                </div>
+
+                <!-- Small Appliances -->
+                <div class="p-6 border rounded-lg shadow-sm">
+                    <div class="text-indigo-600 text-3xl mb-4">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">أجهزة إلكترونية أخرى</h3>
+                    <p class="text-gray-600">خدمات إصلاح المراوح، سخانات المياه، المدافئ، الميكروويف والمزيد.</p>
+                </div>
+
+            </div>
+
+            <!-- Image Gallery Section -->
+            <div class="mt-10">
+                <h2 class="text-2xl font-bold text-center mb-8">معرض أعمالنا الأخيرة</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <img src="https://media.istockphoto.com/id/173585078/photo/an-air-conditioner-being-fixed.webp?a=1&b=1&s=612x612&w=0&k=20&c=lQqthY_xl9vzJslhUHfcBEwdEdocNjeXSZ68bGNVsKY="
+                        alt="إصلاح التكييف" class="rounded-lg shadow-md object-cover w-full h-48" />
+                    <img src="https://images.unsplash.com/photo-1611222503597-0f3e2df189c3?auto=format&fit=crop&w=600&q=80"
+                        alt="إصلاح غسالة الملابس" class="rounded-lg shadow-md object-cover w-full h-48" />
+                    <img src="https://images.unsplash.com/photo-1616627986637-4c5c7ac95bdf?auto=format&fit=crop&w=600&q=80"
+                        alt="إصلاح الميكروويف" class="rounded-lg shadow-md object-cover w-full h-48" />
+                    <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=600&q=80"
+                        alt="صيانة الثلاجة" class="rounded-lg shadow-md object-cover w-full h-48" />
+                    <img src="https://images.unsplash.com/photo-1606819359519-708716353f1e?auto=format&fit=crop&w=600&q=80"
+                        alt="إصلاح المكواة" class="rounded-lg shadow-md object-cover w-full h-48" />
+                    <img src="https://images.unsplash.com/photo-1600508773084-d94e1edcf5cf?auto=format&fit=crop&w=600&q=80"
+                        alt="أدوات إلكترونية" class="rounded-lg shadow-md object-cover w-full h-48" />
+                </div>
+            </div>
+
+            <!-- Why Choose Us -->
+            <div class="mt-20 text-center">
+                <h2 class="text-2xl font-bold mb-6">لماذا تختارنا</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-gray-700">
+                    <div><i class="fas fa-user-shield text-indigo-600"></i> فنيون معتمدون</div>
+                    <div><i class="fas fa-bolt text-indigo-600"></i> استجابة سريعة</div>
+                    <div><i class="fas fa-tools text-indigo-600"></i> قطع غيار أصلية</div>
+                    <div><i class="fas fa-tags text-indigo-600"></i> أسعار معقولة</div>
+                    <div><i class="fas fa-heart text-indigo-600"></i> رضا العملاء</div>
+                    <div><i class="fas fa-star text-indigo-600"></i> موثوقون من قبل أكثر من 5000 عميل</div>
+                </div>
+            </div>
+
+            <!-- Contact / CTA -->
+            <div id="contact" class="mt-20 text-center">
+                <h2 class="text-xl font-semibold text-gray-900 mb-4">هل تحتاج إلى إصلاح أو تركيب؟</h2>
+                <p class="mb-6 text-gray-700">تواصل معنا اليوم لخدمة موثوقة ومساعدة سريعة.</p>
+                <a href="tel:+1234567890"
+                    class="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700 transition">
+                    <i class="fas fa-phone mr-2"></i> اتصل الآن: +123 456 7890
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sticky WhatsApp Button (Bottom Right) -->
+    <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer"
+        class="fixed bottom-5 right-5 z-50 flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-110">
+        <i class="fab fa-whatsapp text-xl"></i>
+        <span class="text-sm font-medium">WhatsApp</span>
+    </a>
+
+    <!-- Sticky Call Button (Bottom Left) -->
+    <a href="tel:+966500000000"
+        class="fixed bottom-5 left-5 z-50 flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-110">
+        <i class="fas fa-phone-alt text-xl"></i>
+        <span class="text-sm font-medium">Call Us</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 text-gray-700 px-6 py-12 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:justify-between space-y-10 md:space-y-0">
+            <!-- About -->
+            <div class="max-w-sm">
+                <p class="mb-6">
+                    نجعل العالم مكانًا أفضل من خلال بناء هياكل أنيقة.
+                </p>
+                <div class="flex space-x-5 text-xl text-gray-600">
+                    <a href="#" aria-label="Facebook" class="hover:text-blue-600">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram" class="hover:text-pink-600">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="X (Twitter)" class="hover:text-blue-400">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="#" aria-label="GitHub" class="hover:text-gray-800">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" aria-label="YouTube" class="hover:text-red-600">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Links Sections -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm font-semibold">
+                <div>
+                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-600">بيت</a></li>
+                        <li><a href="#" class="hover:text-blue-600">معلومات عنا</a></li>
+                        <li><a href="#" class="hover:text-blue-600">اتصال</a></li>
+                        <li><a href="#" class="hover:text-blue-600">خدمات</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-600">اتصل بنا</a> <!-- Contact Us --></li>
+                        <li><a href="#" class="hover:text-blue-600">معلومات عنا</a> <!-- About Us --></li>
+                        <li><a href="#" class="hover:text-blue-600">الأدلة</a> <!-- Guides --></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-600">شروط الخدمة</a></li>
+                        <li><a href="#" class="hover:text-blue-600">سياسة الخصوصية</a></li>
+                        <li><a href="#" class="hover:text-blue-600">الترخيص</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 text-center text-xs text-gray-500">
+            © 2024 شركتك، جميع الحقوق محفوظة.
+        </div>
+
+    </footer>
+
+
+    <script src="../javascript/script.js"></script>
+
+</body>
+
+</html>

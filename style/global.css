@@ -1,0 +1,37 @@
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.clone {
+    flex-shrink: 0;
+}
+
+#reviewsContainer::-webkit-scrollbar {
+    display: none;
+}
+
+main {
+    padding-top: 112px;
+    /* contact bar (48px) + navbar (64px) */
+}
+
+@media (max-width: 767.98px) {
+    main {
+        padding-top: 64px;
+        /* only navbar height on small screens */
+    }
+}
+
+/* Navbar top positioning based on screen size */
+#mainNavbar {
+    top: 0;
+}
+
+@media (min-width: 768px) {
+    #mainNavbar {
+        top: 48px;
+        /* height of contact bar */
+    }
+}

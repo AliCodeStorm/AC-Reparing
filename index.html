@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="./javascript/animation.js"></script>
+    <link rel="stylesheet" href="./style/global.css">
+    <title>حلول كاملة لصيانة وتصليح التكييف</title>
+</head>
+
+<body>
+
+    <!-- contactBar  -->
+    <section id="contact-bar" class="hidden md:flex bg-blue-900 text-white py-3 px-4 fixed top-0 left-0 w-full z-50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+            <ul class="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 items-center text-center sm:text-left">
+                <li class="flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-white text-sm"></i>
+                    <a href="tel:+966540787607" class="hover:underline">+966 540 787 607</a>
+                </li>
+                <li class="flex items-center gap-2 pl-4 border-l border-white">
+                    <i class="fa-solid fa-envelope text-white text-sm"></i>
+                    <a href="mailto:contact@acrepair.shop" class="hover:underline">contact@acrepair.shop</a>
+                </li>
+                <li class="flex items-center gap-2 pl-4 border-l border-white">
+                    <i class="fa-solid fa-clock text-white text-sm"></i>
+                    <span>Mon - Sun 08:00 AM - 12:00 PM</span>
+                </li>
+            </ul>
+            <a href="tel:+966540787607"
+                class="bg-white text-gray-900 px-4 py-1.5 rounded-full font-semibold hover:bg-gray-200 transition">
+                📞 Call Now
+            </a>
+        </div>
+    </section>
+
+    <!-- header  -->
+    <nav aria-label="Global" class="bg-white shadow fixed left-0 w-full z-40" id="mainNavbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a href="./index.html" id="navbar-logo" class="flex items-center space-x-2">
+                <span class="sr-only">Your Company</span>
+                <img src="https://cdn.pixabay.com/photo/2022/07/19/10/24/logo-7331699_1280.png" alt="Your Company"
+                    class="h-8 w-auto" id="logo-img">
+                <span class="text-indigo-600 font-semibold text-lg">AC Repair</span>
+            </a>
+
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex space-x-8">
+                <a href="./index.html" class="text-gray-700 hover:text-indigo-600 font-medium">بيت</a>
+                <a href="./pages/about.html" class="text-gray-700 hover:text-indigo-600 font-medium">معلومات عنا</a>
+                <a href="./pages/contact.html" class="text-gray-700 hover:text-indigo-600 font-medium">اتصال</a>
+                <a href="./pages/services.html" class="text-gray-700 hover:text-indigo-600 font-medium">خدمات</a>
+            </div>
+
+            <!-- Desktop Call Button -->
+            <div id="contact-call-btn" class="hidden lg:flex space-x-4 items-center">
+                <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-semibold">📞
+                    اتصل الآن</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button onclick="toggleSidebar()" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div id="mobileSidebar"
+        class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50">
+        <div class="flex items-center justify-between px-4 h-16 border-b">
+            <span class="text-indigo-600 font-semibold text-lg">AC Repair</span>
+            <button onclick="toggleSidebar()" class="text-gray-700 hover:text-red-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <nav class="p-4 space-y-4">
+            <a href="./index.html" class="block text-gray-700 hover:text-indigo-600 font-medium">🏠 بيت</a>
+            <a href="./pages/about.html" class="block text-gray-700 hover:text-indigo-600 font-medium">ℹ️ معلومات
+                عنا</a>
+            <a href="./pages/contact.html" class="block text-gray-700 hover:text-indigo-600 font-medium">📞 اتصال</a>
+            <a href="./pages/services.html" class="block text-gray-700 hover:text-indigo-600 font-medium">🛠 خدمات</a>
+            <a href="./pages/contact.html"
+                class="block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-semibold mt-4">📞
+                اتصل الآن</a>
+        </nav>
+    </div>
+
+    <!-- Overlay (optional) -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-40" onclick="toggleSidebar()"></div>
+    <main class="pt-[112px]">
+        <!-- Carousel -->
+        <div class="container mx-auto">
+            <div class="carousel relative overflow-hidden rounded-lg shadow-xl" style="height: 400px;">
+                <!-- Carousel Track -->
+                <div id="carousel-track"
+                    class="carousel-track flex transition-transform duration-700 ease-in-out h-full">
+
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide min-w-full h-full relative">
+                        <img src="https://cdn.pixabay.com/photo/2021/09/08/07/22/condenser-unit-6605975_1280.jpg"
+                            class="w-full h-full object-cover" alt="AC Repair">
+                        <div
+                            class="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-60 text-white p-6 rounded-lg text-center w-4/5 max-w-2xl">
+                            <h3 class="text-2xl font-bold mb-2"><i class="fas fa-tools mr-2"></i> إصلاح مكيفات الهواء
+                            </h3>
+                            <p class="text-lg">فنيون محترفون لجميع احتياجات تكييف الهواء الخاصة بك.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide min-w-full h-full relative">
+                        <img src="https://images.unsplash.com/photo-1722010811002-a772b2066890?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fEFDfGVufDB8fDB8fHww"
+                            class="w-full h-full object-cover" alt="Refrigerator Repair">
+                        <div
+                            class="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-60 text-white p-6 rounded-lg text-center w-4/5 max-w-2xl">
+                            <h3 class="text-2xl font-bold mb-2"><i class="fas fa-snowflake mr-2"></i> خدمات الثلاجات
+                            </h3>
+                            <p class="text-lg">حلول صيانة موثوقة وسريعة للثلاجات.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide min-w-full h-full relative">
+                        <img src="https://media.istockphoto.com/id/2122076165/photo/air-conditioner-service-outdoor-checking-fix-repair-air-conditioner-cleaning-technician-he.webp?a=1&b=1&s=612x612&w=0&k=20&c=58HMQPNLBh-jolmAESyJfRefE1QktJ_niX6UwSHaepo="
+                            class="w-full h-full object-cover" alt="HVAC Maintenance">
+                        <div
+                            class="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-60 text-white p-6 rounded-lg text-center w-4/5 max-w-2xl">
+                            <h3 class="text-2xl font-bold mb-2"><i class="fas fa-home mr-2"></i> صيانة HVAC</h3>
+                            <p class="text-lg">خدمات شاملة لأنظمة التدفئة والتبريد.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="carousel-slide min-w-full h-full relative">
+                        <img src="https://media.istockphoto.com/id/2154707821/photo/air-conditioner-service-the-air-conditioner-technician-is-using-a-gauge-to-measure-the.webp?a=1&b=1&s=612x612&w=0&k=20&c=JTqbPmHXsx3rIuokS1oCrffR4brh1z0IUKEdHXdjPjA="
+                            class="w-full h-full object-cover" alt="Extra Slide">
+                        <div
+                            class="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-60 text-white p-6 rounded-lg text-center w-4/5 max-w-2xl">
+                            <h3 class="text-2xl font-bold mb-2"><i class="fas fa-tools mr-2"></i> خدمة تكييف الهواء</h3>
+                            <p class="text-lg">خدمة فحص وصيانة دقيقة لمكيف الهواء.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <button
+                    class="carousel-prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 focus:outline-none">
+                    <i class="fas fa-chevron-left text-xl"></i>
+                </button>
+                <button
+                    class="carousel-next absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 focus:outline-none">
+                    <i class="fas fa-chevron-right text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- grid section  -->
+        <div class="bg-gray-50 py-24 sm:py-32">
+            <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+                <h2 class="text-center text-base/7 font-semibold text-indigo-600">خدمات التبريد المثالية</h2>
+                <!-- Perfect Cooling Services -->
+                <p
+                    class="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-gray-950 sm:text-5xl">
+                    كل ما تحتاجه لصيانة تكييف الهواء</p> <!-- Everything you need for AC maintenance -->
+
+                <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
+
+                    <!-- Fast Service -->
+                    <div class="relative lg:row-span-2">
+                        <div class="absolute inset-px rounded-lg bg-white lg:rounded-l-4xl"></div>
+                        <div
+                            class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
+                            <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+                                <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">خدمة
+                                    سريعة</p> <!-- Fast Service -->
+                                <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">نصل إليك في أسرع وقت
+                                    لتوفير التبريد المثالي لمنزلك أو مكتبك.</p>
+                                <!-- We arrive quickly to deliver optimal cooling for your home or office -->
+                            </div>
+                            <div class="relative min-h-120 w-full grow">
+                                <img class="size-full object-cover object-top"
+                                    src="https://cdn.pixabay.com/photo/2023/10/13/13/38/man-8312827_1280.jpg"
+                                    alt="AC technician fixing a unit">
+                            </div>
+                        </div>
+                        <div
+                            class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 lg:rounded-l-4xl">
+                        </div>
+                    </div>
+
+                    <!-- Certified Technicians -->
+                    <div class="relative max-lg:row-start-1">
+                        <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-4xl"></div>
+                        <div
+                            class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]">
+                            <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                                <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">
+                                    فنيون
+                                    معتمدون</p> <!-- Certified Technicians -->
+                                <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">فريق من الفنيين
+                                    المحترفين وذوي الخبرة في جميع أنواع التكييف.</p>
+                                <!-- A team of professional and experienced technicians for all AC types -->
+                            </div>
+                            <div
+                                class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
+                                <img class="w-full max-lg:max-w-xs"
+                                    src="https://plus.unsplash.com/premium_photo-1682126012378-859ca7a9f4cf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmVzc2lvbmFsJTIwYWlyJTIwY29uZGl0aW9uaW5nJTIwdGVjaG5pY2lhbnxlbnwwfHwwfHx8MA%3D%3D"
+                                    alt="Certified AC technician">
+                            </div>
+                        </div>
+                        <div
+                            class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-t-4xl">
+                        </div>
+                    </div>
+
+                    <!-- Affordable Pricing -->
+                    <div class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2">
+                        <div class="absolute inset-px rounded-lg bg-white"></div>
+                        <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)]">
+                            <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                                <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">
+                                    أسعار
+                                    مناسبة</p> <!-- Affordable Prices -->
+                                <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">خدماتنا تناسب
+                                    ميزانيتك
+                                    مع أعلى جودة ممكنة.</p>
+                                <!-- Our services fit your budget with the highest possible quality -->
+                            </div>
+                            <div class="flex flex-1 items-center justify-center max-lg:py-6 lg:pb-2">
+                                <img class="h-[min(152px,40cqw)] object-contain"
+                                    src="https://images.unsplash.com/photo-1626207887298-da2fc1f50e82?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VzdG9tZXIlMjByZXZpZXdpbmclMjBiaWxsfGVufDB8fDB8fHww"
+                                    alt="Affordable pricing chart or symbol">
+                            </div>
+                        </div>
+                        <div class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5">
+                        </div>
+                    </div>
+
+                    <!-- Emergency Support -->
+                    <div class="relative lg:row-span-2">
+                        <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-4xl lg:rounded-r-4xl"></div>
+                        <div
+                            class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]">
+                            <div class="px-8 pt-8 pb-3 sm:px-10 sm:pt-10 sm:pb-0">
+                                <p class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center">دعم
+                                    طارئ
+                                    24/7</p> <!-- 24/7 Emergency Support -->
+                                <p class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">نحن هنا لخدمتك في أي
+                                    وقت
+                                    لحالات الأعطال المفاجئة.</p> <!-- We’re here for emergency breakdowns anytime -->
+                            </div>
+                            <div class="relative min-h-120 w-full grow">
+                                <img class="size-full object-cover"
+                                    src="https://media.istockphoto.com/id/1522016361/photo/condenser-engineer-on-call-with-customer.webp?a=1&b=1&s=612x612&w=0&k=20&c=FVkxURo_u1_uETy7MKuBY_AbkSE9cEUhJmDBhZUln9s="
+                                    alt="24/7 AC support technician">
+                            </div>
+                        </div>
+                        <div
+                            class="pointer-events-none absolute inset-px rounded-lg shadow-sm ring-1 ring-black/5 max-lg:rounded-b-4xl lg:rounded-r-4xl">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- logos  -->
+        <div class="relative overflow-hidden w-full max-w-7xl py-6 mx-auto">
+            <div class="flex flex-wrap justify-center gap-12 items-center">
+                <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
+                    alt="React" class="transition-transform duration-300 hover:scale-125
+ h-16 w-auto" />
+                <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
+                    alt="Node.js" class="transition-transform duration-300 hover:scale-125
+ h-16 w-auto" />
+                <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
+                    alt="JavaScript" class="transition-transform duration-300 hover:scale-125
+ h-16 w-auto" />
+                <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp" alt="JS"
+                    class="transition-transform duration-300 hover:scale-125
+ h-16 w-auto" />
+                <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
+                    alt="Tailwind" class="transition-transform duration-300 hover:scale-125
+ h-16 w-auto" />
+                <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
+                    alt="Next.js" class="transition-transform duration-300 hover:scale-125
+ h-16 w-auto" />
+                <!-- Add more logos here if needed -->
+            </div>
+        </div>
+
+        <!-- big card  -->
+        <section class="w-full bg-gray-50 py-16 px-6 md:px-12 lg:px-24">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
+                <!-- Left side: Image -->
+                <div class="md:w-1/2">
+                    <img src="https://acrepair.shop/wp-content/uploads/2025/05/images-22.jpeg"
+                        alt="Air Conditioner Maintenance" class="w-full rounded-lg shadow-lg object-cover" />
+                </div>
+
+                <!-- Right side: Text Content -->
+                <div class="md:w-1/2 text-right space-y-6">
+                    <h2 class="text-4xl font-bold text-gray-900">خدماتنا</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        صيانة المكيفات الفعالة تتضمن إصلاح الأعطال بسرعة ودقة، مع ضمان استعادة أداء المكيف بشكل كامل.
+                        كما
+                        نختص في تصليح إلكترونيات الثلاجات بنفس المستوى من الدقة والعناية.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        نقدم خدمات شاملة لصيانة جميع أنواع المكيفات، من الفحص الدوري إلى الإصلاحات المعقدة، مع فريق
+                        محترف
+                        يستخدم أحدث التقنيات لضمان عمل الأجهزة بكفاءة عالية. نؤمن بأهمية راحة عملائنا، لذلك نضمن
+                        الاستجابة
+                        السريعة وخدمة ما بعد الصيانة لضمان رضاكم التام.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        سواء كان لديك مكيف هواء منزلي أو تجاري، أو ثلاجة تحتاج إلى إصلاح إلكترونياتها، نحن هنا لتقديم
+                        الدعم
+                        الكامل بأعلى جودة وأفضل سعر.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- cards reviews -->
+        <section class="max-w-7xl mx-auto px-6 py-12 relative">
+            <h2 class="text-3xl font-bold mb-8 text-center">عملائنا السعداء</h2>
+
+            <!-- Left arrow -->
+            <button id="scrollLeft"
+                class="absolute top-1/2 left-2 -translate-y-1/2 bg-white text-gray-700 rounded-full p-3 shadow hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Scroll Left">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <!-- Right arrow -->
+            <button id="scrollRight"
+                class="absolute top-1/2 right-2 -translate-y-1/2 bg-white text-gray-700 rounded-full p-3 shadow hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Scroll Right">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div id="reviewsContainer" class="flex space-x-6 overflow-x-auto scrollbar-none scroll-smooth"
+                style="scrollbar-width: none; -ms-overflow-style: none;">
+                <div class="min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 1"
+                            class="w-12 h-12 rounded-full mr-3" />
+                        <div>
+                            <h3 class="font-semibold text-lg">سارة محمد</h3>
+                            <p class="text-sm text-gray-500">زبونة</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        خدمات رائعة! تم إصلاح مكيف الهواء الخاص بي بسرعة وبدقة عالية. أوصي بشدة.
+                    </p>
+                </div>
+
+                <div class="min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="User 2"
+                            class="w-12 h-12 rounded-full mr-3" />
+                        <div>
+                            <h3 class="font-semibold text-lg">أحمد علي</h3>
+                            <p class="text-sm text-gray-500">زبون</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        خدمة ممتازة ودعم سريع. تم إصلاح ثلاجتي بطريقة احترافية.
+                    </p>
+                </div>
+
+                <div class="min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User 3"
+                            class="w-12 h-12 rounded-full mr-3" />
+                        <div>
+                            <h3 class="font-semibold text-lg">ليلى حسن</h3>
+                            <p class="text-sm text-gray-500">زبونة</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        فريق محترف وخدمة سريعة. أشكرهم على صيانة مكيفي بكفاءة.
+                    </p>
+                </div>
+
+                <div class="min-w-[300px] bg-white rounded-lg shadow-md p-6 flex-shrink-0">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User 3"
+                            class="w-12 h-12 rounded-full mr-3" />
+                        <div>
+                            <h3 class="font-semibold text-lg">ليلى حسن</h3>
+                            <p class="text-sm text-gray-500">زبونة</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        فريق محترف وخدمة سريعة. أشكرهم على صيانة مكيفي بكفاءة.
+                    </p>
+                </div>
+
+                <!-- Add more review cards as needed -->
+            </div>
+        </section>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left image with overlay & quote -->
+                <div class="relative rounded-lg overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1630569267625-157f8f9d1a7e?auto=format&fit=crop&w=1200&q=80"
+                        alt="Technician fixing AC" class="w-full h-auto object-cover" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <blockquote
+                        class="absolute bottom-6 left-6 right-6 text-white italic text-lg sm:text-xl font-light drop-shadow-lg">
+                        <p>
+                            <i class="fas fa-quote-left mr-2"></i>
+                            “Our expert technicians ensure your home stays cool and comfortable all year round with fast
+                            and reliable AC service.”
+                            <i class="fas fa-quote-right ml-2"></i>
+                        </p>
+                        <figcaption class="mt-3 font-semibold">
+                            — <span class="text-yellow-400">Jessica Parker</span>, CEO at CoolAir Solutions
+                        </figcaption>
+                    </blockquote>
+                </div>
+
+                <!-- Right content area -->
+                <div>
+                    <p class="text-sm text-yellow-600 font-semibold uppercase mb-2">Our Values</p>
+                    <h1 class="text-4xl font-extrabold text-gray-900 mb-6">
+                        Dedicated to Your Comfort & Air Quality
+                    </h1>
+                    <div class="space-y-4 text-gray-700">
+                        <p>
+                            At CoolAir Solutions, we specialize in providing top-notch air conditioning installation,
+                            maintenance, and repair services for homes and businesses. Our mission is to keep you
+                            comfortable while optimizing energy efficiency and indoor air quality.
+                        </p>
+                        <p>
+                            Our certified technicians bring years of experience and use the latest technology to ensure
+                            every job is done right the first time.
+                        </p>
+                        <p>
+                            Customer satisfaction, transparency, and timely service are the cornerstones of our company.
+                            We're here to solve your cooling problems quickly and effectively.
+                        </p>
+                    </div>
+
+                    <!-- Company stats -->
+                    <dl class="mt-10 grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4 text-center">
+                        <div>
+                            <dt class="text-2xl font-extrabold text-yellow-600"><i class="fas fa-tools"></i> 5000+</dt>
+                            <dd class="mt-1 text-gray-600">Installations</dd>
+                        </div>
+                        <div>
+                            <dt class="text-2xl font-extrabold text-yellow-600"><i class="fas fa-user-friends"></i>
+                                1500+</dt>
+                            <dd class="mt-1 text-gray-600">Happy Clients</dd>
+                        </div>
+                        <div>
+                            <dt class="text-2xl font-extrabold text-yellow-600"><i class="fas fa-award"></i> 12</dt>
+                            <dd class="mt-1 text-gray-600">Years Experience</dd>
+                        </div>
+                        <div>
+                            <dt class="text-2xl font-extrabold text-yellow-600"><i class="fas fa-headset"></i> 24/7</dt>
+                            <dd class="mt-1 text-gray-600">Customer Support</dd>
+                        </div>
+                    </dl>
+
+                    <div class="mt-8">
+                        <a href="#services"
+                            class="inline-flex items-center px-6 py-3 bg-yellow-600 text-white font-semibold rounded-md hover:bg-yellow-700 transition">
+                            Learn more about our services
+                            <i class="fas fa-arrow-right ml-3"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- companies logos  -->
+        <section class="bg-gray-50 py-10">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">شركاؤنا</h2>
+
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                    <img src="https://acrepair.shop/wp-content/uploads/2025/04/Screenshot_2023-04-08_at_5.03.02_PM-removebg-preview.png"
+                        alt="LG"
+                        class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
+                    <img src="https://acrepair.shop/wp-content/uploads/2025/04/Screenshot_2023-04-08_at_5.03.09_PM-removebg-preview.png"
+                        alt="Samsung"
+                        class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
+                    <img src="https://acrepair.shop/wp-content/uploads/2025/04/Screenshot_2023-04-08_at_5.03.14_PM-removebg-preview.png"
+                        alt="Carrier"
+                        class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
+                    <img src="https://acrepair.shop/wp-content/uploads/2025/04/Screenshot_2023-04-08_at_5.00.19_PM-removebg-preview.png"
+                        alt="Panasonic"
+                        class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
+                    <img src="https://acrepair.shop/wp-content/uploads/2025/04/Screenshot_2023-04-08_at_5.00.30_PM-removebg-preview.png"
+                        alt="Daikin"
+                        class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
+                    <img src="https://acrepair.shop/wp-content/uploads/2025/04/Screenshot_2023-04-08_at_5.00.39_PM-removebg-preview.png"
+                        alt="Daikin"
+                        class="h-12 w-auto grayscale hover:grayscale-0 transition duration-300 transition-transform duration-300 hover:scale-125">
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Sticky WhatsApp Button (Bottom Right) -->
+        <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer"
+            class="fixed bottom-5 right-5 z-50 flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-110">
+            <i class="fab fa-whatsapp text-xl"></i>
+            <span class="text-sm font-medium">WhatsApp</span>
+        </a>
+
+        <!-- Sticky Call Button (Bottom Left) -->
+        <a href="tel:+966500000000"
+            class="fixed bottom-5 left-5 z-50 flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-110">
+            <i class="fas fa-phone-alt text-xl"></i>
+            <span class="text-sm font-medium">Call Us</span>
+        </a>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 text-gray-700 px-6 py-12 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:justify-between space-y-10 md:space-y-0">
+            <!-- About -->
+            <div class="max-w-sm">
+                <p class="mb-6">
+                    نجعل العالم مكانًا أفضل من خلال بناء هياكل أنيقة.
+                </p>
+                <div class="flex space-x-5 text-xl text-gray-600">
+                    <a href="#" aria-label="Facebook" class="hover:text-blue-600">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram" class="hover:text-pink-600">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="X (Twitter)" class="hover:text-blue-400">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="#" aria-label="GitHub" class="hover:text-gray-800">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" aria-label="YouTube" class="hover:text-red-600">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Links Sections -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm font-semibold">
+                <div>
+                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-600">بيت</a></li>
+                        <li><a href="#" class="hover:text-blue-600">معلومات عنا</a></li>
+                        <li><a href="#" class="hover:text-blue-600">اتصال</a></li>
+                        <li><a href="#" class="hover:text-blue-600">خدمات</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-600">اتصل بنا</a> <!-- Contact Us --></li>
+                        <li><a href="#" class="hover:text-blue-600">معلومات عنا</a> <!-- About Us --></li>
+                        <li><a href="#" class="hover:text-blue-600">الأدلة</a> <!-- Guides --></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-600">شروط الخدمة</a></li>
+                        <li><a href="#" class="hover:text-blue-600">سياسة الخصوصية</a></li>
+                        <li><a href="#" class="hover:text-blue-600">الترخيص</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 text-center text-xs text-gray-500">
+            © 2024 شركتك، جميع الحقوق محفوظة.
+        </div>
+
+    </footer>
+
+    <script src="./javascript/script.js"></script>
+    <!-- <script src="./config.js"></script> -->
+    </div>
+
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تواصل معنا – خدمة تكييف سريعة وموثوقة </title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-d5LHFYJ14HnZ9Jh19M3GhQIddPOx2w3fl6VIBz7UBf0cX9uKkrrkAvdCv6cOmO0AgNs88RbDHGZn0gABZNNY6g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <nav aria-label="Global" class="bg-white shadow fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <span class="sr-only">Your Company</span>
+                <img src="https://cdn.pixabay.com/photo/2022/07/19/10/24/logo-7331699_1280.png" alt="Your Company"
+                    class="h-8 w-auto">
+                <span class="text-indigo-600 font-semibold text-lg">AC Repair</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex space-x-8">
+                <a href="../index.html" class="text-gray-700 hover:text-indigo-600 font-medium">
+                    <i class="fas fa-home mr-1"></i> بيت
+                </a>
+                <a href="./about.html" class="text-gray-700 hover:text-indigo-600 font-medium">
+                    <i class="fas fa-info-circle mr-1"></i> معلومات عنا
+                </a>
+                <a href="./contact.html" class="text-gray-700 hover:text-indigo-600 font-medium">
+                    <i class="fas fa-phone-alt mr-1"></i> اتصال
+                </a>
+                <a href="./services.html" class="text-gray-700 hover:text-indigo-600 font-medium">
+                    <i class="fas fa-tools mr-1"></i> خدمات
+                </a>
+            </div>
+
+            <!-- Desktop Call Button -->
+            <div class="hidden lg:flex space-x-4 items-center">
+                <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-semibold">
+                    <i class="fas fa-phone-alt mr-2"></i> اتصل الآن
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button onclick="toggleSidebar()" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div id="mobileSidebar"
+        class="fixed top-0 left-0 w-64 h-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-50">
+        <div class="flex items-center justify-between px-4 h-16 border-b">
+            <span class="text-indigo-600 font-semibold text-lg">AC Repair</span>
+            <button onclick="toggleSidebar()" class="text-gray-700 hover:text-red-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <nav class="p-4 space-y-4">
+            <a href="../index.html" onclick="toggleSidebar()"
+                class="block text-gray-700 hover:text-indigo-600 font-medium">
+                <i class="fas fa-home mr-2"></i> بيت
+            </a>
+            <a href="./about.html" onclick="toggleSidebar()"
+                class="block text-gray-700 hover:text-indigo-600 font-medium">
+                <i class="fas fa-info-circle mr-2"></i> معلومات عنا
+            </a>
+            <a href="./contact.html" onclick="toggleSidebar()"
+                class="block text-gray-700 hover:text-indigo-600 font-medium">
+                <i class="fas fa-phone-alt mr-2"></i> اتصال
+            </a>
+            <a href="./services.html" onclick="toggleSidebar()"
+                class="block text-gray-700 hover:text-indigo-600 font-medium">
+                <i class="fas fa-tools mr-2"></i> خدمات
+            </a>
+            <a href="#" onclick="toggleSidebar()"
+                class="block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-semibold mt-4">
+                <i class="fas fa-phone-alt mr-2"></i> اتصل الآن
+            </a>
+        </nav>
+    </div>
+
+    <div class="bg-gray-50 min-h-screen flex flex-col items-center p-6 space-y-10 ">
+
+        <h1 class="text-4xl font-bold mt-20">اتصل بنا</h1>
+
+        <div class="w-full max-w-6xl flex flex-col md:flex-row gap-10">
+
+            <!-- Contact Form -->
+            <form id="contactForm" class="flex-1 bg-white p-8 rounded-lg shadow-md" onsubmit="submitForm(event)">
+                <div class="mb-6">
+                    <label for="name" class="block mb-2 font-semibold text-gray-700">الاسم</label>
+                    <input id="name" name="name" type="text" placeholder="اسمك"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required />
+                </div>
+
+                <div class="mb-6">
+                    <label for="email" class="block mb-2 font-semibold text-gray-700">البريد الإلكتروني</label>
+                    <input id="email" name="email" type="email" placeholder="you@example.com"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required />
+                </div>
+
+                <div class="mb-6">
+                    <label for="message" class="block mb-2 font-semibold text-gray-700">الرسالة</label>
+                    <textarea id="message" name="message" rows="5" placeholder="اكتب رسالتك هنا..."
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required></textarea>
+                </div>
+
+                <button type="submit"
+                    class="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition">
+                    إرسال الرسالة
+                </button>
+            </form>
+
+            <!-- Map -->
+            <div class="flex-1 rounded-lg overflow-hidden shadow-md">
+                <iframe title="موقع السعودية"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.7955227873174!2d46.67529501500751!3d24.713551284107095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03b2a8d5fabb%3A0xf2f3b26c9c04c0e!2sRiyadh%2C%20Saudi%20Arabia!5e0!3m2!1sen!2sus!4v1695032400000!5m2!1sen!2sus"
+                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+        </div>
+
+        <section class="max-w-7xl mx-auto my-12 px-4">
+            <div class="flex flex-col lg:flex-row lg:space-x-8">
+                <!-- Contact Information -->
+                <div class="w-full lg:w-1/2 bg-white rounded-lg shadow-md p-6 mb-8 lg:mb-0">
+                    <h2 class="text-3xl font-bold mb-6 text-center">معلومات الاتصال</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-700">
+                        <!-- Address -->
+                        <div class="flex items-start space-x-4">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 5h18M9 3v2m6 0v2m-6 4h6m-6 4h6m-6 4h6" />
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">العنوان</h3>
+                                <p>123 شارع الرياض، الرياض، المملكة العربية السعودية</p>
+                            </div>
+                        </div>
+                        <!-- Email -->
+                        <div class="flex items-start space-x-4">
+                            <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">البريد الإلكتروني</h3>
+                                <p>contact@example.com</p>
+                            </div>
+                        </div>
+                        <!-- Phone -->
+                        <div class="flex items-start space-x-4">
+                            <svg class="w-6 h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 5a2 2 0 012-2h3.28a2 2 0 011.93 1.36l.94 2.83a2 2 0 01-.45 2.11L8.41 11.3a12.15 12.15 0 006.3 6.3l1.56-1.56a2 2 0 012.11-.45l2.83.94A2 2 0 0121 17.72V21a2 2 0 01-2 2h-1C7.82 23 1 16.18 1 8V7a2 2 0 012-2z" />
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">الهاتف</h3>
+                                <p>+966 500 000 000</p>
+                            </div>
+                        </div>
+                        <!-- Working Hours -->
+                        <div class="flex items-start space-x-4">
+                            <svg class="w-6 h-6 text-purple-600 flex-shrink-0" fill="none" stroke="currentColor"
+                                stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4s-4 1.79-4 4 1.79 4 4 4zm0 2c-3.31 0-6 2.69-6 6h12c0-3.31-2.69-6-6-6z" />
+                            </svg>
+                            <div>
+                                <h3 class="font-semibold text-lg">ساعات العمل</h3>
+                                <p>السبت - الخميس: 9:00 صباحًا – 6:00 مساءً</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQs -->
+                <div class="w-full lg:w-1/2 bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-3xl font-bold mb-6 text-center">الأسئلة المتكررة</h2>
+                    <div class="space-y-4">
+                        <!-- FAQ 1 -->
+                        <div class="border border-gray-200 rounded-md">
+                            <button onclick="toggleFAQ(this)"
+                                class="w-full flex justify-between items-center p-4 text-left font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none">
+                                ما هو وقت استجابتكم؟
+                                <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div class="px-4 max-h-0 overflow-hidden text-gray-600 transition-all duration-300">
+                                <p>نحن عادة نرد خلال 24 ساعة في أيام العمل.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="border border-gray-200 rounded-md">
+                            <button onclick="toggleFAQ(this)"
+                                class="w-full flex justify-between items-center p-4 text-left font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none">
+                                هل تقدمون الدعم عبر الهاتف؟
+                                <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div class="px-4 max-h-0 overflow-hidden text-gray-600 transition-all duration-300">
+                                <p>نعم، يمكنكم الاتصال بنا عبر الرقم الموجود في صفحة الاتصال.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="border border-gray-200 rounded-md">
+                            <button onclick="toggleFAQ(this)"
+                                class="w-full flex justify-between items-center p-4 text-left font-semibold text-gray-700 hover:bg-gray-100 focus:outline-none">
+                                هل يمكنني تعديل طلبي بعد تقديمه؟
+                                <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor"
+                                    stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <div class="px-4 max-h-0 overflow-hidden text-gray-600 transition-all duration-300">
+                                <p>يمكن التغيير خلال ساعتين من تقديم الطلب. يرجى التواصل مع الدعم بأسرع وقت.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+    <!-- Team Section -->
+    <section class="bg-white rounded-lg shadow-md p-6 my-12">
+        <h2 class="text-3xl font-bold mb-8 text-center">تعرف على فريق الدعم لدينا</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Team Member 1 -->
+            <div class="bg-gray-50 p-4 rounded-lg hover:shadow-lg transition duration-300">
+                <div class="flex items-center space-x-4">
+                    <img src="https://images.unsplash.com/photo-1592046285097-6cdf4daf0d69?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Ym95c3xlbnwwfHwwfHx8MA%3D%3D"
+                        class="w-16 h-16 rounded-full object-cover" alt="John" />
+                    <div>
+                        <p class="font-semibold text-lg">جون دو</p>
+                        <p class="text-sm text-gray-500">قائد نجاح العملاء</p>
+                    </div>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    يضمن جون رضا ودعم كل عميل.
+                </p>
+                <div class="mt-4 flex space-x-4 text-gray-500">
+                    <a href="#" class="hover:text-blue-500 transition">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-blue-700 transition">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-800 transition">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="bg-gray-50 p-4 rounded-lg hover:shadow-lg transition duration-300">
+                <div class="flex items-center space-x-4">
+                    <img src="https://images.unsplash.com/photo-1551022372-0bdac482b9d6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJveXN8ZW58MHx8MHx8fDA%3D"
+                        class="w-16 h-16 rounded-full object-cover" alt="Sarah" />
+                    <div>
+                        <p class="font-semibold text-lg">سارة أحمد</p>
+                        <p class="text-sm text-gray-500">مهندسة دعم فني</p>
+                    </div>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    تتعامل سارة مع الاستفسارات الفنية وتتأكد من حل المشكلات بسرعة.
+                </p>
+                <div class="mt-4 flex space-x-4 text-gray-500">
+                    <a href="#" class="hover:text-blue-500 transition">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-blue-700 transition">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-800 transition">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="bg-gray-50 p-4 rounded-lg hover:shadow-lg transition duration-300">
+                <div class="flex items-center space-x-4">
+                    <img src="https://images.unsplash.com/photo-1546512565-39d4dc75e556?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGJveXN8ZW58MHx8MHx8fDA%3D"
+                        class="w-16 h-16 rounded-full object-cover" alt="Ali" />
+                    <div>
+                        <p class="font-semibold text-lg">علي رضا</p>
+                        <p class="text-sm text-gray-500">أخصائي الدردشة المباشرة</p>
+                    </div>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    يدير علي الدعم والدردشة المباشرة، ويضمن خدمة سريعة وودودة.
+                </p>
+                <div class="mt-4 flex space-x-4 text-gray-500">
+                    <a href="#" class="hover:text-blue-500 transition">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-blue-700 transition">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-800 transition">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sticky WhatsApp Button (Bottom Right) -->
+    <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer"
+        class="fixed bottom-5 right-5 z-50 flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-110">
+        <i class="fab fa-whatsapp text-xl"></i>
+        <span class="text-sm font-medium">WhatsApp</span>
+    </a>
+
+    <!-- Sticky Call Button (Bottom Left) -->
+    <a href="tel:+966500000000"
+        class="fixed bottom-5 left-5 z-50 flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-110">
+        <i class="fas fa-phone-alt text-xl"></i>
+        <span class="text-sm font-medium">Call Us</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 text-gray-700 px-6 py-12 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:justify-between space-y-10 md:space-y-0">
+            <!-- About -->
+            <div class="max-w-sm">
+                <p class="mb-6">
+                    نجعل العالم مكانًا أفضل من خلال بناء هياكل أنيقة.
+                </p>
+                <div class="flex space-x-5 text-xl text-gray-600">
+                    <a href="#" aria-label="Facebook" class="hover:text-blue-600">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram" class="hover:text-pink-600">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="X (Twitter)" class="hover:text-blue-400">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="#" aria-label="GitHub" class="hover:text-gray-800">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" aria-label="YouTube" class="hover:text-red-600">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Links Sections -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm font-semibold">
+                <div>
+                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-600">بيت</a></li>
+                        <li><a href="#" class="hover:text-blue-600">معلومات عنا</a></li>
+                        <li><a href="#" class="hover:text-blue-600">اتصال</a></li>
+                        <li><a href="#" class="hover:text-blue-600">خدمات</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-600">اتصل بنا</a> <!-- Contact Us --></li>
+                        <li><a href="#" class="hover:text-blue-600">معلومات عنا</a> <!-- About Us --></li>
+                        <li><a href="#" class="hover:text-blue-600">الأدلة</a> <!-- Guides --></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-600">شروط الخدمة</a></li>
+                        <li><a href="#" class="hover:text-blue-600">سياسة الخصوصية</a></li>
+                        <li><a href="#" class="hover:text-blue-600">الترخيص</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10 text-center text-xs text-gray-500">
+            © 2024 شركتك، جميع الحقوق محفوظة.
+        </div>
+
+    </footer>
+
+    <script src="../javascript/script.js"></script>
+</body>
+
+</html>
