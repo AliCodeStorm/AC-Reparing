@@ -16,16 +16,17 @@
     <style>
         html,
         body {
+            /* overflow-y: hidden; */
             overflow-x: hidden;
         }
     </style>
 </head>
 
-<body>
+<body class="overflow-y-hidden">
     <main>
         <!-- contactBar  -->
         <section id="contact-bar"
-            class="bg-blue-900 text-white py-3 px-4 fixed top-0 left-0 w-full z-30 overflow-x-auto">
+            class="bg-blue-900 text-white py-3 px-4 fixed top-0 left-0 w-full z-30 overflow-x-hidden">
             <div
                 class="max-w-none min-w-[768px] md:max-w-7xl mx-auto flex flex-row justify-between items-center gap-4 text-sm">
                 <ul class="flex flex-row flex-nowrap gap-4 items-center text-center whitespace-nowrap">
@@ -49,31 +50,30 @@
             </div>
         </section>
 
-        <!-- header  -->
         <!-- Main Navbar -->
         <nav aria-label="Global" class="bg-white shadow fixed top-0 left-0 w-full z-50" id="mainNavbar">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
                 <!-- Logo -->
                 <a href="./index.html" class="flex items-center space-x-2">
                     <span class="sr-only">Your Company</span>
-                    <img src="https://cdn.pixabay.com/photo/2022/07/19/10/24/logo-7331699_1280.png" alt="Your Company"
-                        class="h-8 w-auto">
+                    <img id="spin-img" src="https://cdn.pixabay.com/photo/2022/07/19/10/24/logo-7331699_1280.png"
+                        alt="Your Company" class="h-8 w-auto">
                     <span class="text-indigo-600 font-semibold text-lg">AC Repair</span>
                 </a>
 
                 <!-- Desktop Links -->
                 <div class="hidden lg:flex space-x-6">
                     <a href="./index.html" class="text-gray-700 hover:text-indigo-600 font-medium">
-                        <i class="fas fa-home mr-1"></i>بيت
+                        <i id="spinIcon" class="fas fa-home mr-1"></i>بيت
                     </a>
                     <a href="./pages/about.html" class="text-gray-700 hover:text-indigo-600 font-medium">
-                        <i class="fas fa-info-circle mr-1"></i>معلومات عنا
+                        <i id="spinIcon" class="fas fa-info-circle mr-1"></i>معلومات عنا
                     </a>
                     <a href="./pages/contact.html" class="text-gray-700 hover:text-indigo-600 font-medium">
-                        <i class="fas fa-phone-alt mr-1"></i>اتصال
+                        <i id="spinIcon" class="fas fa-phone-alt mr-1"></i>اتصال
                     </a>
                     <a href="./pages/services.html" class="text-gray-700 hover:text-indigo-600 font-medium">
-                        <i class="fas fa-tools mr-1"></i>خدمات
+                        <i id="spinIcon" class="fas fa-tools mr-1"></i>خدمات
                     </a>
                 </div>
 
@@ -138,17 +138,17 @@
             onclick="toggleSidebar()"></div>
 
         <!-- Carousel -->
-        <div class="overflow-x-hidden w-full">
+        <div class="overflow-x-hidden  w-full">
             <!-- Container -->
-            <div class="container mx-auto mt-10 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto px-4 sm:px-6 mt-8 lg:px-8 mt-8">
                 <!-- Carousel Wrapper -->
                 <div class="relative overflow-hidden rounded-lg shadow-xl aspect-[16/9]">
                     <!-- Track -->
                     <div id="carouselTrack" class="flex transition-transform duration-700 ease-in-out h-full">
                         <!-- Slide 0 (clone last) -->
                         <div class="w-full flex-none h-full relative">
-                            <img src="https://media.istockphoto.com/id/2154707821/photo/air-conditioner-service-the-air-conditioner-technician-is-using-a-gauge-to-measure-the.webp"
-                                class="w-full h-full object-cover" alt="Clone Last" />
+                            <img src="./images/Carousels/Carousel1.jpg" class="w-full h-full object-cover"
+                                alt="Clone Last" />
                             <div
                                 class="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-60 text-white p-3 sm:p-5 rounded-lg text-center w-[90%] sm:w-4/5 max-w-lg">
                                 <h3 class="text-sm sm:text-xl font-bold mb-1 sm:mb-2"><i
@@ -160,8 +160,8 @@
 
                         <!-- Slide 1 -->
                         <div class="w-full flex-none h-full relative">
-                            <img src="https://cdn.pixabay.com/photo/2021/09/08/07/22/condenser-unit-6605975_1280.jpg"
-                                class="w-full h-full object-cover" alt="AC Repair" />
+                            <img src="./images/Carousels/Carousel2.webp" class="w-full h-full object-cover"
+                                alt="AC Repair" />
                             <div
                                 class="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-60 text-white p-3 sm:p-5 rounded-lg text-center w-[90%] sm:w-4/5 max-w-lg">
                                 <h3 class="text-sm sm:text-xl font-bold mb-1 sm:mb-2"><i
@@ -173,8 +173,8 @@
 
                         <!-- Slide 2 -->
                         <div class="w-full flex-none h-full relative">
-                            <img src="https://media.istockphoto.com/id/2162364073/photo/repairing-air-conditioner-unit-indoor.webp?a=1&b=1&s=612x612&w=0&k=20&c=acnAFoaV0wfSae0aVH4JTbvwPuLi4VXVqoHZsvYysAc="
-                                class="w-full h-full object-cover" alt="Refrigerator Repair" />
+                            <img src="./images/Carousels/Carousel3.webp" class="w-full h-full object-cover"
+                                alt="Refrigerator Repair" />
                             <div
                                 class="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-60 text-white p-3 sm:p-5 rounded-lg text-center w-[90%] sm:w-4/5 max-w-lg">
                                 <h3 class="text-sm sm:text-xl font-bold mb-1 sm:mb-2"><i
@@ -223,13 +223,12 @@
             </div>
         </div>
 
-
         <!-- grid section  -->
         <div class="bg-gray-50 py-24 sm:py-32">
             <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
                 <h2 class="text-center text-base/7 font-semibold text-indigo-600">خدمات التبريد المثالية</h2>
                 <!-- Perfect Cooling Services -->
-                <p
+                <p id="triggerAnimation"
                     class="mx-auto mt-2 max-w-lg text-center text-4xl font-semibold tracking-tight text-balance text-gray-950 sm:text-5xl">
                     كل ما تحتاجه لصيانة تكييف الهواء</p> <!-- Everything you need for AC maintenance -->
 
@@ -249,7 +248,7 @@
                             </div>
                             <div class="relative min-h-120 w-full grow">
                                 <img class="size-full object-cover object-top"
-                                    src="https://cdn.pixabay.com/photo/2023/10/13/13/38/man-8312827_1280.jpg"
+                                    src="./images/GridSection/Grid1.webp"
                                     alt="AC technician fixing a unit">
                             </div>
                         </div>
@@ -274,8 +273,7 @@
                             <div
                                 class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2">
                                 <img class="w-full max-lg:max-w-xs"
-                                    src="https://plus.unsplash.com/premium_photo-1682126012378-859ca7a9f4cf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmVzc2lvbmFsJTIwYWlyJTIwY29uZGl0aW9uaW5nJTIwdGVjaG5pY2lhbnxlbnwwfHwwfHx8MA%3D%3D"
-                                    alt="Certified AC technician">
+                                    src="./images/GridSection/Grid2.avif">
                             </div>
                         </div>
                         <div
@@ -298,7 +296,7 @@
                             </div>
                             <div class="flex flex-1 items-center justify-center max-lg:py-6 lg:pb-2">
                                 <img class="h-[min(152px,40cqw)] object-contain"
-                                    src="https://images.unsplash.com/photo-1626207887298-da2fc1f50e82?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3VzdG9tZXIlMjByZXZpZXdpbmclMjBiaWxsfGVufDB8fDB8fHww"
+                                    src="./images/GridSection/Grid3.avif"
                                     alt="Affordable pricing chart or symbol">
                             </div>
                         </div>
@@ -321,7 +319,7 @@
                             </div>
                             <div class="relative min-h-120 w-full grow">
                                 <img class="size-full object-cover"
-                                    src="https://media.istockphoto.com/id/1522016361/photo/condenser-engineer-on-call-with-customer.webp?a=1&b=1&s=612x612&w=0&k=20&c=FVkxURo_u1_uETy7MKuBY_AbkSE9cEUhJmDBhZUln9s="
+                                    src="./images/GridSection/Grid4.webp"
                                     alt="24/7 AC support technician">
                             </div>
                         </div>
@@ -337,23 +335,17 @@
         <!-- logos  -->
         <div class="relative overflow-hidden w-full max-w-7xl py-6 mx-auto">
             <div class="flex flex-wrap justify-center gap-12 items-center">
-                <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
-                    alt="React" class="logo transition-transform duration-300 hover:scale-125
+                <img src="./images/logo/CloneLast.webp" alt="React" class="logo transition-transform duration-300 hover:scale-125
  h-16 w-auto" />
-                <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
-                    alt="Node.js" class="logo transition-transform duration-300 hover:scale-125
+                <img src="./images/logo/CloneLast2.webp" alt="Node.js" class="logo transition-transform duration-300 hover:scale-125
  h-16 w-auto" />
-                <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
-                    alt="JavaScript" class="logo transition-transform duration-300 hover:scale-125  
+                <img src="./images/logo/CloneLast3.webp" alt="JavaScript" class="logo transition-transform duration-300 hover:scale-125
  h-16 w-auto" />
-                <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp" alt="JS"
-                    class="logo transition-transform duration-300 hover:scale-125
+                <img src="./images/logo/CloneLast4.webp" alt="JS" class="logo transition-transform duration-300 hover:scale-125
  h-16 w-auto" />
-                <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
-                    alt="Tailwind" class="logo transition-transform duration-300 hover:scale-125
+                <img src="./images/logo/CloneLast5.webp" alt="Tailwind" class="logo transition-transform duration-300 hover:scale-125
  h-16 w-auto" />
-                <img src="https://themewant.com/products/wordpress/coolair/wp-content/uploads/2024/05/1-1.webp"
-                    alt="Next.js" class="logo transition-transform duration-300 hover:scale-125
+                <img src="./images/logo/CloneLast6.webp" alt="Next.js" class="logo transition-transform duration-300 hover:scale-125
  h-16 w-auto" />
                 <!-- Add more logos here if needed -->
             </div>
@@ -364,7 +356,7 @@
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
                 <!-- Left side: Image -->
                 <div id="servicesImage" class="md:w-1/2">
-                    <img src="https://acrepair.shop/wp-content/uploads/2025/05/images-22.jpeg"
+                    <img src="./images/Services/services1.jpg"
                         alt="Air Conditioner Maintenance" class="w-full rounded-lg shadow-lg object-cover" />
                 </div>
 
@@ -396,7 +388,7 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <!-- Left image with overlay & quote -->
                 <div class="relative rounded-lg overflow-hidden shadow-lg about-image">
-                    <img src="https://images.unsplash.com/photo-1630569267625-157f8f9d1a7e?auto=format&fit=crop&w=1200&q=80"
+                    <img src="./images/Services/services2.jpeg"
                         alt="فني يقوم بإصلاح المكيف" class="w-full h-auto object-cover" />
                     <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                     <blockquote
@@ -612,7 +604,6 @@
             </div>
         </section>
 
-
         <!-- Sticky WhatsApp Button (Bottom Right) -->
         <a id="contact-call-btn" href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer"
             class="fixed bottom-5 right-5 z-50 flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-110">
@@ -629,37 +620,38 @@
     </main>
 
     <!-- Footer -->
-    <footer id="siteFooter" dir="rtl" class="bg-gray-50 text-gray-800 px-6 py-12 max-w-7xl mx-auto text-right">
-        <div class="flex flex-col md:flex-row md:justify-between space-y-10 md:space-y-0">
+    <footer id="siteFooter" dir="rtl"
+        class="bg-gray-50 text-gray-800 px-4 sm:px-6 lg:px-8 py-10 sm:py-12 max-w-7xl mx-auto text-right">
+        <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-0">
 
             <!-- About -->
-            <div class="footer-block max-w-sm">
-                <p class="mb-6 leading-relaxed text-base">
+            <div class="footer-block max-w-md">
+                <p class="mb-4 text-base leading-relaxed">
                     نجعل العالم مكانًا أفضل من خلال بناء هياكل أنيقة.
                 </p>
-                <div class="flex flex-row-reverse space-x-reverse space-x-5 text-xl text-gray-600">
-                    <a href="#" aria-label="Facebook" class="hover:text-blue-600">
+                <div class="flex flex-row-reverse space-x-reverse space-x-4 text-lg text-gray-600">
+                    <a href="#" aria-label="Facebook" class="p-2 hover:text-blue-600">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" aria-label="Instagram" class="hover:text-pink-600">
+                    <a href="#" aria-label="Instagram" class="p-2 hover:text-pink-600">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" aria-label="X (Twitter)" class="hover:text-blue-400">
+                    <a href="#" aria-label="X (Twitter)" class="p-2 hover:text-blue-400">
                         <i class="fab fa-x-twitter"></i>
                     </a>
-                    <a href="#" aria-label="GitHub" class="hover:text-gray-800">
+                    <a href="#" aria-label="GitHub" class="p-2 hover:text-gray-800">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="#" aria-label="YouTube" class="hover:text-red-600">
+                    <a href="#" aria-label="YouTube" class="p-2 hover:text-red-600">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Links Sections -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm font-semibold">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm font-semibold">
                 <div class="footer-block">
-                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">الشركة</h3>
+                    <h3 class="mb-3 text-gray-900 uppercase tracking-wide">الشركة</h3>
                     <ul class="space-y-2">
                         <li><a href="#" class="hover:text-blue-600">الصفحة الرئيسية</a></li>
                         <li><a href="#" class="hover:text-blue-600">من نحن</a></li>
@@ -668,7 +660,7 @@
                     </ul>
                 </div>
                 <div class="footer-block">
-                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">الدعم</h3>
+                    <h3 class="mb-3 text-gray-900 uppercase tracking-wide">الدعم</h3>
                     <ul class="space-y-2">
                         <li><a href="#" class="hover:text-blue-600">اتصل بنا</a></li>
                         <li><a href="#" class="hover:text-blue-600">معلومات عنا</a></li>
@@ -676,7 +668,7 @@
                     </ul>
                 </div>
                 <div class="footer-block">
-                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">القانوني</h3>
+                    <h3 class="mb-3 text-gray-900 uppercase tracking-wide">القانوني</h3>
                     <ul class="space-y-2">
                         <li><a href="#" class="hover:text-blue-600">شروط الخدمة</a></li>
                         <li><a href="#" class="hover:text-blue-600">سياسة الخصوصية</a></li>
@@ -686,11 +678,9 @@
             </div>
         </div>
 
-        <div class="mt-10 text-center text-xs text-gray-500">
+        <div class="mt-10 text-center text-xs text-gray-800">
             © 2024 شركتك، جميع الحقوق محفوظة.
         </div>
     </footer>
-
-    </div>
 
 </html>

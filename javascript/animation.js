@@ -38,24 +38,24 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    gsap.from("#navbar-logo", {
-        x: -100,
-        opacity: 0,
-        duration: 3,
-        ease: "power3.out"
-    });
+    // gsap.from("#navbar-logo", {
+    //     x: -100,
+    //     opacity: 0,
+    //     duration: 3,
+    //     ease: "power3.out"
+    // });
 
-    gsap.to("#logo-img", {
+    gsap.to("#spin-img", {
         rotate: 360,
         duration: 1,
         repeat: -1,
         ease: "power1.inOut",
-        repeatDelay: 4 // 1s animation + 4s delay = every 5s
+        repeatDelay: 3
     });
 
     gsap.to("#spinIcon", {
         rotation: 360,
-        repeat: 1,
+        repeat: 0,
         duration: 1,
         ease: "linear",
         transformOrigin: "50% 50%"
@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     gsap.from(".service-card", {
         scrollTrigger: {
-            trigger: ".service-card",
+            trigger: "#triggerAnimation",
             start: "top 80%",
         },
         opacity: 0,
@@ -147,24 +147,24 @@ window.addEventListener('DOMContentLoaded', () => {
     const scrollLeft = document.getElementById("scrollLeft");
     const scrollRight = document.getElementById("scrollRight");
 
-    scrollLeft.addEventListener("click", () => {
-        container.scrollBy({ left: -300, behavior: "smooth" });
-    });
+    // scrollLeft.addEventListener("click", () => {
+    //     container.scrollBy({ left: -300, behavior: "smooth" });
+    // });
 
-    scrollRight.addEventListener("click", () => {
-        container.scrollBy({ left: 300, behavior: "smooth" });
-    });
+    // scrollRight.addEventListener("click", () => {
+    //     container.scrollBy({ left: 300, behavior: "smooth" });
+    // });
 
-    gsap.from(".about-image", {
-        scrollTrigger: {
-            trigger: "#aboutSection",
-            start: "top 80%",
-        },
-        opacity: 0,
-        scale: 0.95,
-        duration: 1,
-        ease: "power2.out",
-    });
+    // gsap.from(".about-image", {
+    //     scrollTrigger: {
+    //         trigger: "#aboutSection",
+    //         start: "top 80%",
+    //     },
+    //     opacity: 0,
+    //     scale: 0.95,
+    //     duration: 1,
+    //     ease: "power2.out",
+    // });
 
     // Animate text content
     gsap.from(".about-content", {
@@ -203,4 +203,299 @@ window.addEventListener('DOMContentLoaded', () => {
         ease: "power2.out"
     });
 
+
+    gsap.from("#hero > h1", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#hero > h1",
+            start: "top 80%",
+        },
+    });
+
+    gsap.from("#hero > p", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#hero > p",
+            start: "top 80%",
+        },
+    });
+
+    gsap.from("#hero > a", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#hero > a",
+            start: "top 80%",
+        },
+    });
+
+    // Services grid cards
+    gsap.from("#services-grid > div", {
+        scrollTrigger: {
+            trigger: "#services-grid",
+            start: "top 80%",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.2,
+    });
+
+    // Gallery images
+    gsap.from("#gallery img", {
+        scrollTrigger: {
+            trigger: "#gallery",
+            start: "top 80%",
+        },
+        scale: 0.8,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.15,
+    });
+
+    // Why choose us items
+    gsap.from("#why-choose .grid.text-gray-700 > div", {
+        scrollTrigger: {
+            trigger: "#why-choose",
+            start: "top 80%",
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.15,
+    });
+
+    // Contact section
+    gsap.from("#contact h2", {
+        scrollTrigger: {
+            trigger: "#contact h2",
+            start: "top 80%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+    });
+
+    gsap.from("#contact p", {
+        scrollTrigger: {
+            trigger: "#contact p",
+            start: "top 80%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: "power3.out",
+    });
+
+    gsap.from("#contact a", {
+        scrollTrigger: {
+            trigger: "#contact a",
+            start: "top 80%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        delay: 0.6,
+        ease: "power3.out",
+    });
+
+
+    gsap.from("#aircon-heading", {
+        y: 60,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#aircon-section",
+            start: "top 80%",
+        },
+    });
+
+    gsap.from("#aircon-text", {
+        y: 60,
+        opacity: 0,
+        duration: 1.2,
+        delay: 0.3,
+        ease: "power3.out",
+        scrollTrigger: {
+            trigger: "#aircon-section",
+            start: "top 80%",
+        },
+    });
+
+    gsap.from(["#call-button", "#whatsapp-button"], {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.6,
+        ease: "power3.out",
+        stagger: 0.15,
+        scrollTrigger: {
+            trigger: "#aircon-section",
+            start: "top 80%",
+        },
+    });
+
+    gsap.from(["#about-subtitle", "#about-title", "#about-description"], {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.25,
+        scrollTrigger: {
+            trigger: "#about-section",
+            start: "top 80%",
+        },
+    });
+
+    // Animate teamwork text
+    gsap.from(
+        [
+            "#teamwork-title",
+            "#teamwork-para1",
+            "#teamwork-para2"
+        ],
+        {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: "power3.out",
+            stagger: 0.3,
+            scrollTrigger: {
+                trigger: "#teamwork-text",
+                start: "top 85%",
+            },
+        }
+    );
+
+    // Animate teamwork images with stagger
+    gsap.from(["#teamwork-img1", "#teamwork-img2"], {
+        scale: 0.85,
+        opacity: 0,
+        duration: 1,
+        delay: 0.5,
+        ease: "power3.out",
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: "#teamwork-images",
+            start: "top 85%",
+        },
+    });
+
+    // Animate stats heading and divider
+    gsap.from(["#stats-subtitle", "#stats-section hr"], {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.2,
+        scrollTrigger: {
+            trigger: "#stats-section",
+            start: "top 90%",
+        },
+    });
+
+    // Animate each stat block
+    gsap.from(
+        [
+            "#stat-revenue",
+            "#stat-clients",
+            "#stat-repairs",
+            "#stat-reviews"
+        ],
+        {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.3,
+            ease: "power3.out",
+            stagger: 0.25,
+            scrollTrigger: {
+                trigger: "#stats-section",
+                start: "top 90%",
+            },
+        }
+    );
+
+    const tl = gsap.timeline({ defaults: { ease: "power2.out", duration: 0.6 } });
+
+    // Animate Why Choose Us section
+    tl.from("#whyChooseUsTitle", { y: 40, opacity: 0 });
+    tl.from("#whyChooseUsGrid > div", {
+        y: 40,
+        opacity: 0,
+        stagger: 0.2,
+    }, "-=0.3");
+
+    // Animate Call to Action section
+    tl.from("#callToActionTitle", { y: 40, opacity: 0, delay: 0.3 });
+    tl.from("#callToActionText", { y: 40, opacity: 0 }, "-=0.3");
+    // tl.from("#callToActionButton", { y: 40, opacity: 0 }, "-=0.3");
+
+    const missionTl = gsap.timeline({
+        defaults: { duration: 0.8, ease: 'power3.out' }
+    });
+
+    missionTl.from('#missionImageBlock', { y: 60, opacity: 0 });
+    missionTl.from('#missionQuote', { y: 30, opacity: 0 }, '-=0.4');
+    missionTl.from('#missionCommitment', { y: 40, opacity: 0 }, '-=0.5');
+    missionTl.from('#missionTitle', { y: 40, opacity: 0 }, '-=0.4');
+    missionTl.from('#missionParagraphs p', { y: 30, opacity: 0, stagger: 0.25 }, '-=0.5');
+    missionTl.from('#missionStats > div', { y: 30, opacity: 0, stagger: 0.2 }, '-=0.6');
+    missionTl.from('#missionLearnMoreBtn', { y: 30, opacity: 0 }, '-=0.4');
+
+     gsap.from("#contact-heading", {
+      opacity: 0,
+      y: -50,
+      duration: 1,
+      ease: "power3.out"
+    });
+
+    gsap.from("#contact-form", {
+      opacity: 0,
+      x: -100,
+      duration: 1.2,
+      delay: 0.3,
+      ease: "power2.out"
+    });
+
+    gsap.from("#map-section", {
+      opacity: 0,
+      x: 100,
+      duration: 1.2,
+      delay: 0.4,
+      ease: "power2.out"
+    });
+
+    gsap.from("#contact-info", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      delay: 0.6,
+      ease: "power2.out"
+    });
+
+    gsap.from("#faq-section", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      delay: 0.8,
+      ease: "power2.out"
+    });
 });

@@ -79,3 +79,26 @@ function toggleSidebar() {
     document.body.classList.remove('overflow-hidden');
   }
 }
+
+
+function toggleFAQ(button) {
+  const content = button.nextElementSibling;
+  const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
+
+  if (isOpen) {
+    gsap.to(content, {
+      maxHeight: 0,
+      opacity: 0,
+      duration: 0.4,
+      ease: "power2.inOut"
+    });
+  } else {
+    gsap.set(content, { opacity: 0 });
+    gsap.to(content, {
+      maxHeight: 200, // adjust as needed
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.inOut"
+    });
+  }
+}

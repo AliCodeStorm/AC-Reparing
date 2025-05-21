@@ -7,42 +7,48 @@
     <title>خدماتنا في تصليح وتركيب التكييف</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="../javascript/animation.js" defer></script>
+
+    <script src="../javascript/script.js" defer></script>
 </head>
 
 <body>
 
     <!-- Header -->
-    <nav aria-label="Global" class="bg-white shadow fixed w-full z-50">
+    <nav aria-label="Global" class="bg-white shadow fixed top-0 left-0 w-full z-50" id="mainNavbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
             <!-- Logo -->
-            <a href="#" class="flex items-center space-x-2">
+            <a href="../index.html" class="flex items-center space-x-2">
                 <span class="sr-only">Your Company</span>
-                <img src="https://cdn.pixabay.com/photo/2022/07/19/10/24/logo-7331699_1280.png" alt="Your Company"
-                    class="h-8 w-auto">
+                <img id="spin-img" src="https://cdn.pixabay.com/photo/2022/07/19/10/24/logo-7331699_1280.png"
+                    alt="Your Company" class="h-8 w-auto">
                 <span class="text-indigo-600 font-semibold text-lg">AC Repair</span>
             </a>
 
             <!-- Desktop Links -->
-            <div class="hidden lg:flex space-x-8">
+            <div class="hidden lg:flex space-x-6">
                 <a href="../index.html" class="text-gray-700 hover:text-indigo-600 font-medium">
-                    <i class="fas fa-home mr-1"></i> بيت
+                    <i id="spinIcon" class="fas fa-home mr-1"></i>بيت
                 </a>
                 <a href="./about.html" class="text-gray-700 hover:text-indigo-600 font-medium">
-                    <i class="fas fa-info-circle mr-1"></i> معلومات عنا
+                    <i id="spinIcon" class="fas fa-info-circle mr-1"></i>معلومات عنا
                 </a>
                 <a href="./contact.html" class="text-gray-700 hover:text-indigo-600 font-medium">
-                    <i class="fas fa-phone-alt mr-1"></i> اتصال
+                    <i id="spinIcon" class="fas fa-phone-alt mr-1"></i>اتصال
                 </a>
                 <a href="./services.html" class="text-gray-700 hover:text-indigo-600 font-medium">
-                    <i class="fas fa-tools mr-1"></i> خدمات
+                    <i id="spinIcon" class="fas fa-tools mr-1"></i>خدمات
                 </a>
             </div>
 
             <!-- Desktop Call Button -->
-            <div class="hidden lg:flex space-x-4 items-center">
-                <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-semibold">
-                    <i class="fas fa-phone-alt mr-2"></i> اتصل الآن
-                </a>
+            <div class="hidden lg:flex">
+                <a id="contact-call-btn"
+                    class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-semibold">📞
+                    اتصل
+                    الآن</a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -86,7 +92,7 @@
                 class="block text-gray-700 hover:text-indigo-600 font-medium">
                 <i class="fas fa-tools mr-2"></i> خدمات
             </a>
-            <a href="#" onclick="toggleSidebar()"
+            <a href="./services.html" onclick="toggleSidebar()"
                 class="block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 font-semibold mt-4">
                 <i class="fas fa-phone-alt mr-2"></i> اتصل الآن
             </a>
@@ -97,7 +103,7 @@
     <section class="bg-white py-16 px-6 md:px-12 lg:px-24">
         <div class="max-w-7xl mx-auto">
             <!-- Hero Section -->
-            <div class="text-center mb-12">
+            <div id="hero" class="text-center mb-12">
                 <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">حلول كاملة للأجهزة المنزلية</h1>
                 <p class="text-gray-600 text-lg">نقوم بإصلاح وصيانة وتركيب مجموعة واسعة من الأجهزة الإلكترونية لمنزلك.
                 </p>
@@ -107,7 +113,7 @@
             </div>
 
             <!-- Services Grid -->
-            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div id="services-grid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <!-- AC Services -->
                 <div class="p-6 border rounded-lg shadow-sm">
                     <div class="text-indigo-600 text-3xl mb-4">
@@ -156,26 +162,26 @@
             </div>
 
             <!-- Image Gallery Section -->
-            <div class="mt-10">
+            <div id="gallery" class="mt-10">
                 <h2 class="text-2xl font-bold text-center mb-8">معرض أعمالنا الأخيرة</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <img src="https://media.istockphoto.com/id/173585078/photo/an-air-conditioner-being-fixed.webp?a=1&b=1&s=612x612&w=0&k=20&c=lQqthY_xl9vzJslhUHfcBEwdEdocNjeXSZ68bGNVsKY="
-                        alt="إصلاح التكييف" class="rounded-lg shadow-md object-cover w-full h-48" />
-                    <img src="https://images.unsplash.com/photo-1611222503597-0f3e2df189c3?auto=format&fit=crop&w=600&q=80"
-                        alt="إصلاح غسالة الملابس" class="rounded-lg shadow-md object-cover w-full h-48" />
-                    <img src="https://images.unsplash.com/photo-1616627986637-4c5c7ac95bdf?auto=format&fit=crop&w=600&q=80"
-                        alt="إصلاح الميكروويف" class="rounded-lg shadow-md object-cover w-full h-48" />
-                    <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=600&q=80"
-                        alt="صيانة الثلاجة" class="rounded-lg shadow-md object-cover w-full h-48" />
-                    <img src="https://images.unsplash.com/photo-1606819359519-708716353f1e?auto=format&fit=crop&w=600&q=80"
-                        alt="إصلاح المكواة" class="rounded-lg shadow-md object-cover w-full h-48" />
-                    <img src="https://images.unsplash.com/photo-1600508773084-d94e1edcf5cf?auto=format&fit=crop&w=600&q=80"
-                        alt="أدوات إلكترونية" class="rounded-lg shadow-md object-cover w-full h-48" />
+                    <img src="../images/Services/services3.webp" alt="إصلاح التكييف"
+                        class="rounded-lg shadow-md object-cover w-full h-48" />
+                    <img src="../images/Services/services4.webp" alt="إصلاح غسالة الملابس"
+                        class="rounded-lg shadow-md object-cover w-full h-48" />
+                    <img src="../images/Services/services5.webp" alt="إصلاح الميكروويف"
+                        class="rounded-lg shadow-md object-cover w-full h-48" />
+                    <img src="../images/Services/services6.jpg" alt="صيانة الثلاجة"
+                        class="rounded-lg shadow-md object-cover w-full h-48" />
+                    <img src="../images/Services/services7.jpg" alt="إصلاح المكواة"
+                        class="rounded-lg shadow-md object-cover w-full h-48" />
+                    <img src="../images/Services/services8.jpg" alt="أدوات إلكترونية"
+                        class="rounded-lg shadow-md object-cover w-full h-48" />
                 </div>
             </div>
 
             <!-- Why Choose Us -->
-            <div class="mt-20 text-center">
+            <div id="why-choose" class="mt-20 text-center">
                 <h2 class="text-2xl font-bold mb-6">لماذا تختارنا</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-gray-700">
                     <div><i class="fas fa-user-shield text-indigo-600"></i> فنيون معتمدون</div>
@@ -199,86 +205,83 @@
         </div>
     </section>
 
-
     <!-- Sticky WhatsApp Button (Bottom Right) -->
-    <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer"
+    <a id="contact-call-btn" href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer"
         class="fixed bottom-5 right-5 z-50 flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-110">
         <i class="fab fa-whatsapp text-xl"></i>
         <span class="text-sm font-medium">WhatsApp</span>
     </a>
 
     <!-- Sticky Call Button (Bottom Left) -->
-    <a href="tel:+966500000000"
+    <a id="contact-call-btn" href="tel:+966500000000"
         class="fixed bottom-5 left-5 z-50 flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg transition-transform duration-300 hover:scale-110">
         <i class="fas fa-phone-alt text-xl"></i>
         <span class="text-sm font-medium">Call Us</span>
     </a>
 
     <!-- Footer -->
-    <footer id="siteFooter" class="bg-gray-50 text-gray-700 px-6 py-12 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:justify-between space-y-10 md:space-y-0">
+    <footer id="siteFooter" dir="rtl"
+        class="bg-gray-50 text-gray-800 px-4 sm:px-6 lg:px-8 py-10 sm:py-12 max-w-7xl mx-auto text-right">
+        <div class="flex flex-col md:flex-row md:justify-between gap-12 md:gap-0">
 
             <!-- About -->
-            <div class="footer-block max-w-sm">
-                <p class="mb-6">
+            <div class="footer-block max-w-md">
+                <p class="mb-4 text-base leading-relaxed">
                     نجعل العالم مكانًا أفضل من خلال بناء هياكل أنيقة.
                 </p>
-                <div class="flex space-x-5 text-xl text-gray-600">
-                    <a href="#" aria-label="Facebook" class="hover:text-blue-600">
+                <div class="flex flex-row-reverse space-x-reverse space-x-4 text-lg text-gray-600">
+                    <a href="#" aria-label="Facebook" class="p-2 hover:text-blue-600">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" aria-label="Instagram" class="hover:text-pink-600">
+                    <a href="#" aria-label="Instagram" class="p-2 hover:text-pink-600">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" aria-label="X (Twitter)" class="hover:text-blue-400">
+                    <a href="#" aria-label="X (Twitter)" class="p-2 hover:text-blue-400">
                         <i class="fab fa-x-twitter"></i>
                     </a>
-                    <a href="#" aria-label="GitHub" class="hover:text-gray-800">
+                    <a href="#" aria-label="GitHub" class="p-2 hover:text-gray-800">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="#" aria-label="YouTube" class="hover:text-red-600">
+                    <a href="#" aria-label="YouTube" class="p-2 hover:text-red-600">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Links Sections -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm font-semibold">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm font-semibold">
                 <div class="footer-block">
-                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Company</h3>
+                    <h3 class="mb-3 text-gray-900 uppercase tracking-wide">الشركة</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-700 hover:text-blue-600">بيت</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-blue-600">معلومات عنا</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-blue-600">اتصال</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-blue-600">خدمات</a></li>
+                        <li><a href="#" class="hover:text-blue-600">الصفحة الرئيسية</a></li>
+                        <li><a href="#" class="hover:text-blue-600">من نحن</a></li>
+                        <li><a href="#" class="hover:text-blue-600">اتصل بنا</a></li>
+                        <li><a href="#" class="hover:text-blue-600">الخدمات</a></li>
                     </ul>
                 </div>
                 <div class="footer-block">
-                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Support</h3>
+                    <h3 class="mb-3 text-gray-900 uppercase tracking-wide">الدعم</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-700 hover:text-blue-600">اتصل بنا</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-blue-600">معلومات عنا</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-blue-600">الأدلة</a></li>
+                        <li><a href="#" class="hover:text-blue-600">اتصل بنا</a></li>
+                        <li><a href="#" class="hover:text-blue-600">معلومات عنا</a></li>
+                        <li><a href="#" class="hover:text-blue-600">الأدلة</a></li>
                     </ul>
                 </div>
                 <div class="footer-block">
-                    <h3 class="mb-4 uppercase text-gray-900 tracking-wide">Legal</h3>
+                    <h3 class="mb-3 text-gray-900 uppercase tracking-wide">القانوني</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-700 hover:text-blue-600">شروط الخدمة</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-blue-600">سياسة الخصوصية</a></li>
-                        <li><a href="#" class="text-gray-700 hover:text-blue-600">الترخيص</a></li>
+                        <li><a href="#" class="hover:text-blue-600">شروط الخدمة</a></li>
+                        <li><a href="#" class="hover:text-blue-600">سياسة الخصوصية</a></li>
+                        <li><a href="#" class="hover:text-blue-600">الترخيص</a></li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="mt-10 text-center text-xs text-gray-500">
+        <div class="mt-10 text-center text-xs text-gray-800">
             © 2024 شركتك، جميع الحقوق محفوظة.
         </div>
     </footer>
-
-    <script src="../javascript/script.js"></script>
-
 </body>
 
 </html>
