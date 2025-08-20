@@ -71,7 +71,7 @@ function toggleSidebar() {
     sidebar.classList.remove('-translate-x-full');
     sidebar.classList.add('translate-x-0');
     overlay.classList.remove('hidden');
-    document.body.classList.add('overflow-hidden'); // Prevent scroll
+    document.body.classList.add('overflow-hidden');
   } else {
     sidebar.classList.remove('translate-x-0');
     sidebar.classList.add('-translate-x-full');
@@ -95,7 +95,7 @@ function toggleFAQ(button) {
   } else {
     gsap.set(content, { opacity: 0 });
     gsap.to(content, {
-      maxHeight: 200, // adjust as needed
+      maxHeight: 200, 
       opacity: 1,
       duration: 0.5,
       ease: "power2.inOut"
